@@ -4,6 +4,7 @@ export default {
         blue:'#0077FE',
         blue_light:'#319AFB',
         blue_hover:'#0065D9',
+        blue_active:'#EAEEFF',
 
         orange:'#FF9925',
 

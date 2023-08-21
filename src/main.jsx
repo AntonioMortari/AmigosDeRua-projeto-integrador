@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <App />
+          <App />
       </ThemeProvider>
     </Provider>
   

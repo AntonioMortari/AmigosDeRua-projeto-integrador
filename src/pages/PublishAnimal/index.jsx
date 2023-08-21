@@ -1,8 +1,8 @@
-
+import Menu from '../../components/Menu'
 
 function PublishAnimal() {
     return ( 
-        <h1>Estamos na PublishAnimal</h1>
+        <Menu />
      );
 }
 

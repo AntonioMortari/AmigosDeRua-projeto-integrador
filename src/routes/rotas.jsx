@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from '../pages/Home'
 import About from '../pages/About'
 import Faq from '../pages/Faq'
-import HomePage from '../pages/HomePage'
 
 import Profile from '../pages/Profile'
 
@@ -27,7 +26,6 @@ export default function Rotas(){
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/faq' element={<Faq />} />
-                <Route path='/homePage' element={<HomePage />} />
 
                 <Route path='/profile' element={<Profile />} />
 

@@ -10,6 +10,10 @@ export default createGlobalStyle`
 
     body{
         min-height: 100vh;
+        color: #262626;
+        background-color: ${({theme}) => theme.COLORS.white_200};
+
+        overflow-x: hidden;
     }
 
     button{
@@ -18,7 +22,7 @@ export default createGlobalStyle`
 
     a{
         text-decoration: none;
-        color:black;
+        color: #262626;
     }
 
 `
