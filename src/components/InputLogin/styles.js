@@ -16,9 +16,11 @@ const Label = styled.label`
             padding: 10px 0;
             font-size: 1rem;
             border: none;
-            border-bottom: 1px solid rgba(38, 38, 38, 0.178);
+            border-bottom: 2px solid rgba(38, 38, 38, 0.178);
     
             outline: none;
+
+            transition: all.3s;
     
             &:focus{
                 border-color: ${({theme}) => theme.COLORS.blue};

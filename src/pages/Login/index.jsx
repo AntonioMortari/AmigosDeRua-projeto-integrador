@@ -38,7 +38,7 @@ function Login() {
 
     return (
         <Conteiner>
-            <div className='conteiner-login'>
+            <div className='main'>
                 
                 <ButtonBack txt='Voltar' onClick={() => window.history.back()} />
 

@@ -5,7 +5,7 @@ import {useState} from 'react'
 import {AiOutlineEye as EyeVisible} from 'react-icons/ai'
 import {AiOutlineEyeInvisible as EyeInvisible} from 'react-icons/ai'
 
-function InputLogin({ type, txt, name, onChange,placeholder }) {
+function InputLogin({ type, txt, name, onChange,placeholder, autoComplete = 'off' }) {
     const [showPassword, setShowPassword] = useState(false)
 
     const handlePassword = () =>{
@@ -22,6 +22,8 @@ function InputLogin({ type, txt, name, onChange,placeholder }) {
                     id={name}
                     onChange={onChange}
                     placeholder={placeholder}
+                    autoComplete={autoComplete}
+                    required
                 />
                 {type == 'password' && (
                     showPassword ? (
