@@ -24,7 +24,7 @@ function MenuMobile() {
                 isOpen ? (
                     <Conteiner>
                         <RiCloseFill size={35} onClick={() => setIsOpen(false)} />
-                        <NavLink to='/'>Página Inicial</NavLink>
+                        <NavLink to='/'>Home</NavLink>
                         <NavLink to='/adoptfriend'>Adote um amigo</NavLink>
                         <NavLink to='/publish-animal'>Divulgar animal</NavLink>
                         <NavLink to='/about'>Sobre</NavLink>

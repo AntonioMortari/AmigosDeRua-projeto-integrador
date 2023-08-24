@@ -9,7 +9,7 @@ import {
 function AlertError({messageError}) {
   return (
     <Alert status="error" alignItems="center" gap="20px">
-      <AlertIcon color="red" />
+      <AlertIcon size='35' color="red" />
       {messageError}
     </Alert>
   );

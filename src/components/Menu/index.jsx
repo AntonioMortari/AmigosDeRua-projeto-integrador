@@ -31,7 +31,7 @@ function Menu() {
                 <Link to='/'><img src={srcLogo} alt="Logo Amigos de Rua" /></Link>
 
                 <nav>
-                    <NavLink to='/'>Página Inicial</NavLink>
+                    <NavLink to='/'>Home</NavLink>
                     <NavLink to='/adoptfriend'>Adote um amigo</NavLink>
                     <NavLink to='/publish-animal'>Divulgar animal</NavLink>
                     <NavLink to='/about'>Sobre</NavLink>

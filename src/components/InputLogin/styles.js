@@ -11,7 +11,7 @@ const Label = styled.label`
         display: flex;
         align-items: center;
         input{
-            width: 90%;
+            width: 98%;
             background-color: transparent;
             padding: 10px 0;
             font-size: 1rem;

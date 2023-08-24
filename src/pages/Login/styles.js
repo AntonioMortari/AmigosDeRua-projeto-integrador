@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 const Conteiner = styled.main`
     min-height: 100vh;
-    /* background-color: ${({ theme }) => theme.COLORS.blue}; */
     background-image: linear-gradient(135deg, ${({theme}) => theme.COLORS.blue} 45% ,${({theme}) => theme.COLORS.white_200} 45% );
 
     display: flex;
@@ -14,7 +13,7 @@ const Conteiner = styled.main`
         margin:30px 0px;
         background-color: ${({ theme }) => theme.COLORS.white_100};
 
-        max-width: 340px;
+        max-width: 350px;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0px 0px 10px rgba(38, 38, 38, 0.285);
