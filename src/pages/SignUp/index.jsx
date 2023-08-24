@@ -1,11 +1,17 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
+
+import {useDispatch} from 'react-redux'
+
+import {users} from '../../axios/config'
+
 
 import Conteiner from '../Login/styles'
-
 import Input from '../../components/InputLogin';
 import Button from '../../components/Button'
 import ButtonBack from '../../components/ButtonBack'
+import AlertError from '../../components/AlertError'
 
 
 const initialStates = {
@@ -18,18 +24,77 @@ const initialStates = {
 
 function SignUp() {
     const [values, setValues] = useState(initialStates)
+    const [isError, setIsError] = useState(false)
+    const [messageError, setMessageError] = useState('')
 
-    const verifyDataUser = (e) =>{
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const showError = (message) =>{
+        setIsError(true)
+        setMessageError(message)
+    }
+
+    const verifyUser = async() =>{
+        let dataUser;
+        const url = `/users?email=${values.email}`
+        await users.get(url)
+            .then(response =>{
+                dataUser = response.data
+            })
+            .catch(err => console.log(err))
+
+        if(dataUser.length > 0){
+            return true
+        }
+
+        if(dataUser.length == 0){
+            return false
+        }
+    }
+
+    const verifyDataUser = async(e) =>{
         e.preventDefault()
 
-        if(values.password != values.password2){
-            alert('Erro, as senhas não coincidem')
-        }else{
-            console.log('Cadastrar usuário!')
+        if(
+            // verifica se os campos foram preenchidos
+            values.name.length < 3 ||
+            values.email.length < 5 ||
+            values.password.length < 2 ||
+            values.password2.length < 2
+        ){
+            showError('Preencha os campos corretamente!')
+            return
         }
+
+        if(values.password != values.password2){
+            // verifica se as senhas coincidem
+            showError('As senhas não coincidem!')
+            return
+        }
+
+        
+        const userExist = await verifyUser() 
+        if(userExist){
+            // verificando se o email já esta cadastrado
+            showError(`O email ${values.email} já está cadastrado!`)
+            return
+        }
+
+        const url = '/users'
+        await users.post(url,values)
+            .catch(err => console.log(err))
+
+        dispatch({type:'LOGIN'})
+        navigate('/')
+
     }
     
     const onChange = (e) =>{
+        // faz com que o erro desapareça
+        setIsError(false)
+        setMessageError('')
+
         let {name, value} = e.target
 
         let newState = {...values}
@@ -66,6 +131,9 @@ function SignUp() {
                         onChange={onChange}
                         />
 
+                    {isError &&(
+                        <AlertError messageError = {messageError} />
+                     )}
                 </form>
 
                 <p>Já tem uma conta? <Link to='/login'>Faça Login!</Link></p>

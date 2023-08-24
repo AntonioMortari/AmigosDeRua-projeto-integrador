@@ -1,5 +1,25 @@
 {
-    "users":[
-        
-    ]
+  "users": [
+    {
+      "name": "Matheus Ferreira",
+      "email": "mathferreira726@gmail.com",
+      "password": "28022007",
+      "password2": "28022007",
+      "id": 2
+    },
+    {
+      "name": "Livia Lange",
+      "email": "hail.ahlevo@gmail.com",
+      "password": "Mugiwara1*",
+      "password2": "Mugiwara1*",
+      "id": 3
+    },
+    {
+      "name": "Antonio Mortari",
+      "email": "antoniomortari09@gmail.com",
+      "password": "30032005",
+      "password2": "30032005",
+      "id": 4
+    }
+  ]
 }
