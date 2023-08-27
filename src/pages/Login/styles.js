@@ -13,7 +13,8 @@ const Conteiner = styled.main`
         margin:30px 0px;
         background-color: ${({ theme }) => theme.COLORS.white_100};
 
-        max-width: 350px;
+        max-width: 400px;
+        min-width: 320px;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0px 0px 10px rgba(38, 38, 38, 0.285);

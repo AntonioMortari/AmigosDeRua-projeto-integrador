@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { users } from '../../axios/config'
@@ -27,6 +28,14 @@ function SignUp() {
 
     const [messageError, setMessageError] = useState('')
     const [showAlertSucess, setShowAlertSucess] = useState(false)
+
+    const isLogged = useSelector(state => state.isLogged)
+
+    useEffect(() => {
+        if (isLogged) {
+            window.history.back()
+        }
+    }, [])
 
     const showError = (message) => {
         setIsError(true)
@@ -80,7 +89,7 @@ function SignUp() {
         setIsError(false)
         setMessageError('')
 
-        let newValues = functions.attStateValues(e,values)
+        let newValues = functions.attStateValues(e, values)
         setValues(newValues)
     }
 
@@ -126,7 +135,7 @@ function SignUp() {
                     )}
 
                     {showAlertSucess && (
-                        <AlertSucess txt='Registro realizado com sucesso! Agora é só fazer login :)'/>
+                        <AlertSucess txt='Registro realizado com sucesso! Agora é só fazer login :)' />
                     )}
                 </form>
 

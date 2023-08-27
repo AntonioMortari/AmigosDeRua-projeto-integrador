@@ -13,7 +13,6 @@ import MoreInformationPet from '../pages/MoreInformationPet'
 import NgoCampaigns from '../pages/NgoCampaigns'
 
 import SignUp from '../pages/SignUp'
-import OngOrPeople from '../pages/OngOrPeople'
 import Login from '../pages/Login'
 
 import NotFound from '../pages/NotFound'
@@ -37,7 +36,6 @@ export default function Rotas(){
                 <Route path='/ngo-campaigns' element={<NgoCampaigns />} />
 
                 <Route path='/sign-up' element={<SignUp />} />
-                <Route path='/ongOrPeople' element={<OngOrPeople />} />
                 <Route path='/login' element={<Login />} />
 
                 <Route path='*' element={<NotFound />} />

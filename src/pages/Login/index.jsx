@@ -1,7 +1,7 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Link} from 'react-router-dom'
-import {useDispatch} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 
 // Components
 import Conteiner from './styles'
@@ -23,10 +23,17 @@ const initialStates = {
 function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const isLogged = useSelector(state => state.isLogged)
     
     const [values, setValues] = useState(initialStates)
     const [showError, setShowError] = useState(false)
     const [messageError, setMessageError] = useState('')
+
+    useEffect(() =>{
+        if(isLogged){
+            window.history.back()
+        }
+    },[])
 
     const handleShowError = (message) =>{
         setShowError(true)
