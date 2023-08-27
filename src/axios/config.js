@@ -4,8 +4,12 @@ const users = axios.create({
     baseURL:'http://localhost:5000',
 })
 
-const publications = axios.create({
+const publicationsApi = axios.create({
     baseURL:'http://localhost:5001',
 })
 
-export {users, publications}
+const feedbacks = axios.create({
+    beseUrl:'http://localhost:5002',
+})
+
+export {users, publicationsApi,feedbacks}

@@ -6,15 +6,8 @@
       "email": "antoniomortari09@gmail.com",
       "password": "30030522",
       "password2": "30030522",
+      "publications": [],
       "id": 1
-    },
-    {
-      "name": "Livia",
-      "lastName": "Ávila",
-      "email": "hail.ahlevo@gmail.com",
-      "password": "Mugiwara1*",
-      "password2": "Mugiwara1*",
-      "id": 2
     }
   ]
 }

@@ -5,6 +5,7 @@ import About from '../pages/About'
 import Faq from '../pages/Faq'
 
 import Profile from '../pages/Profile'
+import EditProfile from '../pages/EditProfile'
 
 import AdoptFriend from '../pages/AdoptFriend'
 import PublishAnimal from '../pages/PublishAnimal'
@@ -28,6 +29,7 @@ export default function Rotas(){
                 <Route path='/faq' element={<Faq />} />
 
                 <Route path='/profile' element={<Profile />} />
+                <Route path='/edit-profile' element={<EditProfile />} />
 
                 <Route path='/adoptfriend' element={<AdoptFriend />} />
                 <Route path='/publish-animal' element={<PublishAnimal />} />

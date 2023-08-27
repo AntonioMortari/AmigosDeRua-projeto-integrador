@@ -6,7 +6,7 @@
             "donor": "Kaio Dolores",
             "name": "Bucky",
             "image": "https://conteudo.imguol.com.br/c/entretenimento/13/2022/01/19/patinhas-de-amor-alimenta-diariamente-mais-de-40-caes-de-rua-em-pe-1642627793044_v2_1079x1418.jpg",
-            "tyoe": "cachorro",
+            "type": "cachorro",
             "porte": "Adulto",
             "gender": "Macho",
             "race": "Sem raça definida",
@@ -44,7 +44,7 @@
             "race": "Golden Retriver",
             "description": "Fofa e adorável, sempre brincando e fazendo alugumas baguncinhas.",
             "number": "7778-290",
-            "email": "Eduardomarola@gmail.com",
+            "email": "eduardomarola@gmail.com",
             "uf": "Goiás",
             "city": "Catalão" 
         },
@@ -100,7 +100,7 @@
         {
             "id":7,
             "donor": "Maycon Santos",
-            "name": "TonTom",
+            "name": "Tom",
             "image": "https://img.freepik.com/fotos-gratis/feche-o-gato-fofo-dentro-de-casa_23-2148882585.jpg",
             "type": "Gato",
             "porte": "Filhote",

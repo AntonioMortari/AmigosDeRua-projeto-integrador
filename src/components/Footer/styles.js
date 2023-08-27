@@ -9,6 +9,7 @@ const Footer = styled.footer`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 40px;
 
     >.links-footer{
         display: flex;
@@ -26,18 +27,6 @@ const Footer = styled.footer`
         >.conteiner-social-media{
             display: flex;
             gap: 20px;
-
-            >a{
-                color:white;
-                font-size: 1.5rem;
-                
-                >svg{
-                    transition: all.3s;
-                    &:hover{
-                    color: ${({theme}) => theme.COLORS.orange};
-                }
-                }
-            }
         }
     }
 
@@ -51,6 +40,8 @@ const Footer = styled.footer`
             display: flex;
             flex-direction:column;
             gap: 15px;
+            color: ${({theme}) => theme.COLORS.white_200};
+            
 
             >input{
                 padding: 8px;

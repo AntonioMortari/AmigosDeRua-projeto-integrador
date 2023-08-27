@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-
-import { useDispatch } from 'react-redux'
 
 import { users } from '../../axios/config'
-
 
 import Conteiner from '../Login/styles'
 import Input from '../../components/InputLogin';
 import Button from '../../components/Button'
 import ButtonBack from '../../components/ButtonBack'
 import AlertError from '../../components/AlertError'
-import { AiFillCheckCircle as CheckIcon } from 'react-icons/ai'
+import AlertSucess from '../../components/AlertSucess'
 
-import {
-    Alert
-} from '@chakra-ui/react'
-
+// functions
+import functions from '../../functions'
 
 const initialStates = {
     name: '',
@@ -26,7 +20,6 @@ const initialStates = {
     password: '',
     password2: ''
 }
-
 
 function SignUp() {
     const [values, setValues] = useState(initialStates)
@@ -38,24 +31,6 @@ function SignUp() {
     const showError = (message) => {
         setIsError(true)
         setMessageError(message)
-    }
-
-    const verifyUser = async () => {
-        let dataUser;
-        const url = `/users?email=${values.email}`
-        await users.get(url)
-            .then(response => {
-                dataUser = response.data
-            })
-            .catch(err => console.log(err))
-
-        if (dataUser.length > 0) {
-            return true
-        }
-
-        if (dataUser.length == 0) {
-            return false
-        }
     }
 
     const verifyDataUser = async (e) => {
@@ -78,8 +53,7 @@ function SignUp() {
             return
         }
 
-
-        const userExist = await verifyUser()
+        const userExist = await functions.verifyUserExist(values.email)
         if (userExist) {
             // verificando se o email já esta cadastrado
             showError(`O email ${values.email} já está cadastrado!`)
@@ -88,6 +62,7 @@ function SignUp() {
 
         // registra o usuário na api
         const url = '/users'
+        values.publications = []
         await users.post(url, values)
             .catch(err => console.log(err))
 
@@ -98,7 +73,6 @@ function SignUp() {
         setTimeout(() => {
             setShowAlertSucess(false)
         }, 8000);
-
     }
 
     const onChange = (e) => {
@@ -106,12 +80,8 @@ function SignUp() {
         setIsError(false)
         setMessageError('')
 
-        let { name, value } = e.target
-
-        let newState = { ...values }
-        newState[name] = value
-
-        setValues(newState)
+        let newValues = functions.attStateValues(e,values)
+        setValues(newValues)
     }
 
     return (
@@ -156,10 +126,7 @@ function SignUp() {
                     )}
 
                     {showAlertSucess && (
-                        <Alert status='success' display='flex' gap='20px'>
-                            <CheckIcon color='green' size='35' />
-                            Registro realizado com sucesso! Agora é só fazer login :)
-                        </Alert>
+                        <AlertSucess txt='Registro realizado com sucesso! Agora é só fazer login :)'/>
                     )}
                 </form>
 

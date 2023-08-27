@@ -8,7 +8,7 @@ import {
 
 function AlertError({messageError}) {
   return (
-    <Alert status="error" alignItems="center" gap="20px">
+    <Alert mt='20px' status="error" alignItems="center" gap="20px">
       <AlertIcon size='35' color="red" />
       {messageError}
     </Alert>

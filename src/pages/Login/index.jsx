@@ -1,9 +1,7 @@
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Link} from 'react-router-dom'
-import {useSelector, useDispatch} from 'react-redux'
-
-import {users} from '../../axios/config'
+import {useDispatch} from 'react-redux'
 
 // Components
 import Conteiner from './styles'
@@ -11,6 +9,9 @@ import Button from '../../components/Button'
 import ButtonBack from '../../components/ButtonBack'
 import InputLogin from '../../components/InputLogin';
 import AlertError from '../../components/AlertError'
+
+// functions
+import functions from '../../functions'
 
 
 // estados iniciais dos inputs
@@ -32,16 +33,6 @@ function Login() {
         setMessageError(message)
     }
 
-    const getDataUser = async() =>{
-        let dataUser;
-        const url = `/users?email=${values.email}`
-        await users.get(url)
-            .then(response => dataUser = [...response.data])
-            .catch(err => console.log(err))
-
-        return dataUser
-    }
-
     const submitLogin = async(e) =>{
         e.preventDefault()
 
@@ -52,13 +43,15 @@ function Login() {
         }
 
         
-        const dataUser = await getDataUser()
-        if(dataUser.length == 0){
+        const userExist = await functions.verifyUserExist(values.email)
+        if(!userExist){
             // verificando se o email existe
             handleShowError(`O email ${values.email} ainda não foi cadastrado!`)
             return
         }
-
+        
+        const dataUser = await functions.getDataUserByEmail(values.email)
+        // verificando se as senhas coincidem
         if(dataUser[0].password != values.password){
             handleShowError('Senha incorreta!')
             return
@@ -73,19 +66,15 @@ function Login() {
         setShowError(false)
         setMessageError('')
 
-        let {name,value} = e.target
-        
-        let newState = {...values}
-        newState[name] = value
-
-        setValues(newState)
+        let newValues = functions.attStateValues(e,values)
+        setValues(newValues)
     }
 
     return (
         <Conteiner>
             <div className='main'>
                 
-                <ButtonBack txt='Voltar' onClick={() => window.history.back()} />
+                <ButtonBack txt='Voltar' onClick={() => navigate('/')} />
 
                 <h2>Login</h2>
                 <p>Bem-vindo(a) novamente! Faça login para continuar</p>
