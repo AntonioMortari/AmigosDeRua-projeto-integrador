@@ -34,7 +34,7 @@ function Home() {
                     </div>
 
                     <div className='conteiner-image'>
-                        <img src={srcImageHome} alt="Mulher com um cahorro" />
+                        <img src={srcImageHome} alt="Mulher com um cachorro" />
                     </div>
                 </div>
 

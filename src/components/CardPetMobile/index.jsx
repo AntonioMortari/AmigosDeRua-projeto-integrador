@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 
 import Button from '../Button';
+import ButtonFavorite from '../ButtonFavorite';
 
 function CardPetMobile({ publication }) {
     return (
@@ -33,8 +34,10 @@ function CardPetMobile({ publication }) {
                         <p>{publication.city}, {publication.uf}</p>
                     </CardBody>
 
-                    <CardFooter>
+                    <CardFooter display='flex' alignItems='center' justifyContent='space-between'>
                         <Button color='blue' content='Detalhes' to={`/more-information-pet/${publication.id}`} />
+
+                        <ButtonFavorite />
                     </CardFooter>
                 </Stack>
             </Card>

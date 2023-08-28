@@ -72,6 +72,7 @@ function SignUp() {
         // registra o usuário na api
         const url = '/users'
         values.publications = []
+        values.favorites = []
         await users.post(url, values)
             .catch(err => console.log(err))
 

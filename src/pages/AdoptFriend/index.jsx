@@ -88,7 +88,7 @@ function AdoptFriend() {
                             <option value="">Todos os Estados</option>
                             {ufs.map(uf => {
                                 return(
-                                    <option value={uf.sigla}>{uf.nome}</option>
+                                    <option key={uf.sigla} value={uf.sigla}>{uf.nome}</option>
                                 )
                             })}
                         </select>
