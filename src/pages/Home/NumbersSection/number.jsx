@@ -5,14 +5,14 @@ const Conteiner = styled.div`
     flex-direction:column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    width: 240px;
-    height: 200px;
+    gap: 5px;
+    width: 260px;
+    height: 220px;
     text-align: center;
 
     background-color: ${({theme}) => theme.COLORS.white_100};
     clip-path:circle();
-    padding: 50px;
+    padding: 45px;
 
     >span{
         color: ${({theme}) => theme.COLORS.blue};

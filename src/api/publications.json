@@ -159,6 +159,181 @@
             "sigleUf":"SP",
             "uf": "São Paulo",
             "city": "Sorocaba" 
+        },
+        {  
+            "id":11,
+            "donor": "Gustavo Marques",
+            "name": "Billy",
+            "image": "https://www.patasdacasa.com.br/sites/patasdacasa/files/styles/webp/public/noticias/2021/08/6-coisas-que-voce-pode-fazer-pelos-cachorros-abandonados-da-sua-cidade.jpg.webp?itok=EMr964SL",
+            "specie": "Cachorro",
+            "size": "Médio",
+            "sex": "Masculino",
+            "description": "Brincalhão, adora fazer companhia para as pessoas. Adora correr para todos os lados.",
+            "phoneNumber": "7778-560",
+            "email": "Marquesgus@gmail.com",
+            "sigleUf":"MG",
+            "uf": "Minas Gerais",
+            "city": "Guaxupé"  
+        },
+        
+        {
+            "id":12,
+            "donor": "Rebeca Alves",
+            "name": "Pipoca",
+            "image": "https://animais.culturamix.com/blog/wp-content/gallery/vida-de-cachorro-2-1/Vida-de-Cachorro-5.jpg",
+            "specie": "Cachorro",
+            "size": "Médio",
+            "sex": "Feminino",
+            "description": "Adora carinho na barriga e nas orelhas. Sempre curiosa e corajosa.",
+            "phoneNumber": "7778-560",
+            "email": "Rebecaal@gmail.com",
+            "sigleUf":"BA",
+            "uf": "Bahia",
+            "city": "Salvador"
+        },
+
+        {
+            "id":13,
+            "donor": "Nicole Soares",
+            "name": "Nico",
+            "image": "https://oespecialista.com.br/wp-content/uploads/2022/08/animais-de-estimacao-reino-unido.jpg",
+            "specie": "Cachorro",
+            "size": "Pequeno",
+            "sex": "Masculino",
+            "description": "Timido porém muito brincalhão e adora bichinhos de pelúcia e morder as coisas.",
+            "phoneNumber": "7778-5692",
+            "email": "NicSoares@gmail.com",
+            "sigleUf":"SP",
+            "uf": "São Paulo",
+            "city": "Ubatuba"
+        },
+
+        {
+            "id":14,
+            "donor": "Nickolas Pines",
+            "name": "Jasmin",
+            "image": "https://adotar.com.br/painel/upload/2016-01/animais_imagem178628.jpg",
+            "specie": "Cachorro",
+            "size": "Médio",
+            "sex": "Feminino",
+            "description": "Personalidade única e cativante. Leal, amigável e brincalhona, trazendo alegria e diversão para todos ao seu redor.",
+            "phoneNumber": "7778-578",
+            "email": "Rebecaal@gmail.com",
+            "sigleUf":"SP",
+            "uf": "São Paulo",
+            "city": "Ubatuba"
+        },
+
+        {
+            "id":15,
+            "donor": "Jonathan Ferreira",
+            "name": "Garfield",
+            "image": "https://img.freepik.com/fotos-premium/gatos-de-rua-fofos-ou-gatos-de-rua_431906-1776.jpg?w=2000",
+            "specie": "Gato",
+            "size": "Médio",
+            "sex": "Masculino",
+            "description": "curioso, independente e astuto, explorando seu ambiente com uma atitude desafiadora.",
+            "phoneNumber": "7778-5743",
+            "email": "Jonathanferreira@gmail.com",
+            "sigleUf":"SP",
+            "uf": "São Paulo",
+            "city": "São José" 
+        },
+
+        {
+            "id":16,
+            "donor": "Flavia Medeiros",
+            "name": "Luna",
+            "image": "https://blog-static.petlove.com.br/wp-content/uploads/2020/11/Gato-filhote-Petlove-2.jpg",
+            "specie": "Gato",
+            "size": "Pequeno",
+            "sex": "Feminino",
+            "description": "Ela está sempre investigando cada canto da casa em busca de aventuras e descobertas. Além disso, é muito afetuosa e adora receber carinho",
+            "phoneNumber": "7778-5372",
+            "email": "flamedeiros@gmail.com",
+            "sigleUf":"SP",
+            "uf": "São Paulo",
+            "city": "Campinas" 
+        },
+
+        {
+            "id":17,
+            "donor": "Guilherme Guimeda",
+            "name": "Logan",
+            "image": "https://www.petz.com.br/blog/wp-content/uploads/2020/06/gatos-pretos.jpg",
+            "specie": "Gato",
+            "size": "Pequeno",
+            "sex": "Masculino",
+            "description": "Uma personalidade misteriosa e enigmática. Ele é independente e observadore, mas também é afetuoso e leai com aqueles que ganham sua confiança.",
+            "phoneNumber": "7778-156",
+            "email": "Guiguimeda@gmail.com",
+            "sigleUf":"SP",
+            "uf": "São Paulo",
+            "city": "Campinas" 
+        },
+
+        {
+            "id":18,
+            "donor": "Bruno Vieira",
+            "name": "Nina",
+            "image": "https://as1.ftcdn.net/v2/jpg/02/41/74/82/1000_F_241748277_psWKQl5XIS22jKFH0zghAb6eHrRGqkfV.jpg",
+            "specie": "Cachorro",
+            "size": "Pequeno",
+            "sex": "Feminino",
+            "description": "Divertida e enérgica, com uma grande paixão por brincadeiras e exploração. Leal e afetuosa, formando fortes vínculos com as pessoas.",
+            "phoneNumber": "8965-890",
+            "email": "vierabruno@gmail.com",
+            "sigleUf":"SP",
+            "uf": "São Paulo",
+            "city": "Sorocaba"
+        },
+
+        {
+            "id":19,
+            "donor": "Camile Fernandes",
+            "name": "Kiara",
+            "image": "https://img.olx.com.br/images/14/140391300775640.jpg",
+            "specie": "Cachorro",
+            "size": "Pequeno",
+            "sex": "Feminino",
+            "description": "altamente inteligente e energética. Tem dedicação e capacidade de aprendizado rápido, ativa e envolvida em atividades ao ar livre.",
+            "phoneNumber": "8965-152",
+            "email": "fernandescamile@gmail.com",
+            "sigleUf":"SP",
+            "uf": "São Paulo",
+            "city": "Santo André"  
+        },
+
+        {
+            "id":20,
+            "donor": "Thomas Holmes",
+            "name": "Bailey",
+            "image": "https://i.pinimg.com/originals/4e/ff/db/4effdb540ec84ff18fd981946eecc1be.jpg",
+            "specie": "Cachorro",
+            "size": "Pequeno",
+            "sex": "Masculino",
+            "description": "leal e enérgico. Ele é companheiro fiel, sempre pronto para seguir seu dono em aventuras e brincadeiras. Sua personalidade vibrante e cheia de energia o tornaria um adorável e divertido membro da família.",
+            "phoneNumber": "8965-245",
+            "email": "ThommyHolmes@gmail.com",
+            "sigleUf":"SP",
+            "uf": "São Paulo",
+            "city": "São Paulo"  
+        },
+
+        {
+            "id":21,
+            "donor": "Fabiana Oliveira",
+            "name": "Roma",
+            "image": "https://2.bp.blogspot.com/-kUOhE-jNras/VjD73NnTICI/AAAAAAAA66A/fpttN9e2tBQ/s1600/319dbe3d7895c2f1ff4ae36b400d1c33.jpg",
+            "specie": "Cachorro",
+            "size": "Médio",
+            "sex": "Masculino",
+            "description": "Brincalhona e carinhosa. Ela está sempre correndo atrás de sua bolinha, uma parceira fiel.",
+            "phoneNumber": "8965-175",
+            "email": "OliveiraFabiana@gmail.com",
+            "sigleUf":"SP",
+            "uf": "São Paulo",
+            "city": "São Paulo" 
         }
     ]
 }

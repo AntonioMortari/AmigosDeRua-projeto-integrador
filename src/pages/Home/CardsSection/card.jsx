@@ -5,11 +5,12 @@ const Conteiner = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 
-    width: 240px;
-    height: 350px;
-    padding: 20px;
+    width: 270px;
+    height: 360px;
+    padding: 25px;
+    padding-bottom: 30px;
 
     background-color: ${({theme}) => theme.COLORS.white_100};
     border-radius: 8px;
