@@ -13,17 +13,17 @@ const ConteinerCards = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
 `
 
 function CardsSection() {
     return ( 
         <ConteinerCards>
-            <Card src = {srcAdopt} title='Adote um amigo' content=' inventore atque? Modi enim cupiditate nisi, architecto excepturi mollitia soluta doloribus libero optio' />
+            <Card src = {srcAdopt} title='Adote um amigo' content='Descubra uma variedade de pets que estão ansiosos para fazer parte da sua família. Ao adotar, você dá a eles um lar e recebe amor incondicional em troca' />
 
-            <Card src={srcPublish} title='Divulgue animais que precisam de um lar' content=' inventore atque? Modi enim cupiditate nisi, architecto excepturi mollitia soluta do' />
+            <Card src={srcPublish} title='Divulgue animais que precisam de um lar' content='Seja uma ponte entre pets adoráveis e lares amorosos. Sua contribuição ao divulgar animais em busca de um lar faz toda a diferença.' />
 
-            <Card src={srcHelpNgo} title='Contribuia com as ONGs' content=' inventore atque? Modi enim cupiditate nisi, architecto excepturi mollitia soluta dolo' />
+            <Card src={srcHelpNgo} title='Contribuia com as ONGs' content='As ONGs desempenham um papel vital na proteção e no bem-estar dos animais. Sua contribuição ajuda a fornecer cuidados, abrigo e carinho a pets em necessidade.' />
         </ConteinerCards>
      );
 }

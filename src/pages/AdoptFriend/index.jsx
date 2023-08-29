@@ -9,21 +9,29 @@ import MsgNoResults from '../../components/MsgNoResults/';
 import CardPet from '../../components/CardPet/';
 import Button from '../../components/Button'
 
+import {GoArrowLeft as LeftArrow, GoArrowRight as RightArrow} from 'react-icons/go'
+
+import {
+    Box,
+    Stack
+} from '@chakra-ui/react';
+
 const initialOptions = {
-    
+
 }
 
 function AdoptFriend() {
     const [publications, setPublications] = useState([])
     const [options, setOptions] = useState(initialOptions)
     const [ufs, setUfs] = useState([])
+    const [page, setPage] = useState(1)
 
     const handleOptions = (e) => {
         const { name, value } = e.target
         let newState = { ...options }
         newState[name] = value
 
-        if(newState[name] == ''){
+        if (newState[name] == '') {
             // se algum filtro estiver vazio, remova a propriedade que controla seu valor para que não intefira na consulta a api
             delete newState[name]
         }
@@ -31,11 +39,11 @@ function AdoptFriend() {
         setOptions(newState)
     }
 
-    const handleSearch = async() =>{
+    const handleSearch = async () => {
         // cria uma url com os parâmetros de acordo com os filtros selecionados
         const params = new URLSearchParams(options)
 
-        const url= `/publications?${params.toString()}`
+        const url = `/publications?${params.toString()}`
 
         await publicationsApi.get(url)
             .then(response => setPublications(response.data))
@@ -43,13 +51,13 @@ function AdoptFriend() {
     }
 
     const getPublications = async () => {
-        const url = '/publications'
+        const url = `/publications?_page=${page}&_limit=16`
         await publicationsApi.get(url)
             .then(response => setPublications(response.data))
             .catch(err => console.log(err))
     }
 
-    const getUfs = async() =>{
+    const getUfs = async () => {
         // pega todos os estados
         await axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
             .then(response => setUfs(response.data))
@@ -59,7 +67,7 @@ function AdoptFriend() {
     useEffect(() => {
         getPublications()
         getUfs()
-    },[])
+    }, [page])
 
     return (
         <>
@@ -68,7 +76,7 @@ function AdoptFriend() {
             <ConteinerAdoptFriend>
                 <main>
 
-                        <h2>Adote um amigo!</h2>
+                    <h2>Adote um amigo!</h2>
                     <div className='conteiner-filters' value={options.uf} onChange={handleOptions}>
 
 
@@ -87,7 +95,7 @@ function AdoptFriend() {
                         <select name="sigleUf" id="sigleUf">
                             <option value="">Todos os Estados</option>
                             {ufs.map(uf => {
-                                return(
+                                return (
                                     <option key={uf.sigla} value={uf.sigla}>{uf.nome}</option>
                                 )
                             })}
@@ -114,8 +122,25 @@ function AdoptFriend() {
                         )}
 
                     </div>
-
                 </main>
+
+                {/* navegação das páginas */}
+                <Stack align='center' justify='center' display={Object.keys(options).length > 0 ? 'none' : 'flex'}>
+                    {/* só vai aparecer se nenhuma opção de filtro estiver selecionada */}
+                    <Box 
+                    mt='30px' 
+                    display='flex' 
+                    gap='25px' 
+                    fontSize='1.2rem' 
+                    borderRadius='30px' 
+                    bg='#ff992545' 
+                    padding='10px'>
+                        <LeftArrow size='25' cursor='pointer' onClick={() => page > 1 && setPage(prev => prev - 1)} />
+                        {page}
+                        <RightArrow size='25' cursor='pointer' onClick={() => page >= 1 && setPage(prev => prev + 1)} />
+                    </Box>
+                </Stack>
+
             </ConteinerAdoptFriend>
 
             <Footer />

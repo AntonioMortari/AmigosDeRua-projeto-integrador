@@ -1,10 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import { Link } from 'react-router-dom'
 import {useNavigate} from 'react-router-dom'
-import { useSelector } from 'react-redux'
-
-import functions from '../../functions'
-import {users} from '../../axios/config'
 
 import ConteinerCardPet from './styles'
 import ButtonFavorite from '../../components/ButtonFavorite/index.jsx';
@@ -18,29 +14,11 @@ import {
 import CardPetMobile from '../CardPetMobile'
 
 function CardPet({ publication }) {
-    // pegando largura da janela
+    // pegando largura da tela
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
     window.addEventListener('resize', () => setWindowWidth(window.innerWidth))
     
-    // estados
-    const [isChecked, setIsChecked] = useState(false)
-    const [dataUser, setDataUser] = useState(null)
-    
     const navigate = useNavigate()
-    const isLogged = useSelector(state => state.isLogged)
-
-
-    const handleIsChecked = (idPetFavorite) =>{
-
-        if(!isLogged){
-            // se não estiver logado, redirecione a pagina de login
-            navigate('/login')
-            return
-        }
-
-        setIsChecked(!isChecked)
-    }
-
 
     return (
         <ConteinerCardPet>
@@ -68,8 +46,6 @@ function CardPet({ publication }) {
                         </Link>
                         <h4>{publication.name}</h4>
                         <p>{publication.city}, {publication.uf}</p>
-
-                        <ButtonFavorite onChange={() => handleIsChecked(publication.id)} isChecked={isChecked} />
 
                         <Button content='Detalhes' color='blue' onClick={() => navigate(`/more-information-pet/${publication.id}`)} />
 

@@ -25,10 +25,10 @@ function Home() {
                     <div className='conteiner-text'>
                         <h1>Amigos de Rua</h1>
 
-                        <p>Lorem ipsum dolor, sit amet <span>consectetur</span> adipisicing elit. Eaque, dolor magni. Quos dolorem repellat fugit. Doloribus </p>
+                        <p><span>Encontre</span> um companheiro para alegrar sua vida. <span>Navegue</span> por nossas opções de adoção e faça a diferença na vida de um animalzinho </p>
 
                         <Button
-                            content={isLogged ? 'Adote Já!' : 'Cadastre-se'}
+                            content={isLogged ? 'Encontre seu Amigo' : 'Cadastre-se para Adotar'}
                             to={isLogged ? '/adoptfriend' : 'sign-up'}
                             color='blue' />
                     </div>
