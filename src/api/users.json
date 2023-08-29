@@ -13,6 +13,16 @@
         1
       ],
       "id": 1
+    },
+    {
+      "name": "Lívia",
+      "lastName": "Ávila",
+      "email": "hail.ahlevo@gmail.com",
+      "password": "Mugiwara1*",
+      "password2": "Mugiwara1*",
+      "publications": [],
+      "favorites": [],
+      "id": 2
     }
   ],
   "ongs": []

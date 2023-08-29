@@ -5,7 +5,7 @@ const ConteinerProfile = styled.div`
 
     /* opções de background */
 
-    /* background-color:#F8E3CC; */
+    /*background-color:#F8E3CC; */
 /* 
     background-image: linear-gradient(135deg, ${({theme}) => theme.COLORS.orange} 45% ,${({theme}) => theme.COLORS.white_200} 45% ); */
 
