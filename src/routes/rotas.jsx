@@ -17,10 +17,13 @@ import Login from '../pages/Login'
 
 import NotFound from '../pages/NotFound'
 
+import ScrollToTop from './ScrollToTop'
+
 
 export default function Rotas(){
     return(
         <Router>
+            <ScrollToTop />
 
             <Routes>
                 <Route path='/' element={<Home />} />

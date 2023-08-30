@@ -34,7 +34,7 @@ const ConteinerAdoptFriend = styled.div`
             }
 
             button{
-                width:15%;
+                width:100px;
             }
         }
 

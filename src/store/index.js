@@ -19,6 +19,7 @@ const reducer = (state = initialState, action) =>{
             newState.isLogged = false
             localStorage.setItem('isLogged', JSON.stringify(newState.isLogged))
             localStorage.removeItem('idUser')
+            localStorage.removeItem('page')
             return newState
         default:
             return state

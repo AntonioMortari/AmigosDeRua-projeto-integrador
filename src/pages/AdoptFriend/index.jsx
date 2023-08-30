@@ -24,7 +24,7 @@ function AdoptFriend() {
     const [publications, setPublications] = useState([])
     const [options, setOptions] = useState(initialOptions)
     const [ufs, setUfs] = useState([])
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(JSON.parse(localStorage.getItem('page')) || 1)
 
     const handleOptions = (e) => {
         const { name, value } = e.target
@@ -51,7 +51,7 @@ function AdoptFriend() {
     }
 
     const getPublications = async () => {
-        const url = `/publications?_page=${page}&_limit=16`
+        const url = `/publications?_page=${page}&_limit=9`
         await publicationsApi.get(url)
             .then(response => setPublications(response.data))
             .catch(err => console.log(err))
@@ -87,9 +87,9 @@ function AdoptFriend() {
                         </select>
 
                         <select name="sex" id="sex">
-                            <option value="">Todos os sexos</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Feminino">Feminino</option>
+                            <option value="">Todos os Gêneros</option>
+                            <option value="Masculino">Macho</option>
+                            <option value="Feminino">Fêmea</option>
                         </select>
 
                         <select name="sigleUf" id="sigleUf">
@@ -135,9 +135,23 @@ function AdoptFriend() {
                     borderRadius='30px' 
                     bg='#ff992545' 
                     padding='10px'>
-                        <LeftArrow size='25' cursor='pointer' onClick={() => page > 1 && setPage(prev => prev - 1)} />
+                        <LeftArrow size='25' cursor='pointer' onClick={() =>{
+                            if(page > 1){
+                                let newPage = page
+                                newPage--
+                                setPage(newPage)
+                                localStorage.setItem('page', JSON.stringify(newPage))
+                            }
+                        }} />
                         {page}
-                        <RightArrow size='25' cursor='pointer' onClick={() => page >= 1 && setPage(prev => prev + 1)} />
+                        <RightArrow size='25' cursor='pointer' onClick={() =>{
+                            if(page >= 1){
+                                let newPage = page
+                                newPage++
+                                setPage(newPage)
+                                localStorage.setItem('page', JSON.stringify(newPage))
+                            }
+                        }} />
                     </Box>
                 </Stack>
 

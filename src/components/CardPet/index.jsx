@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import {useNavigate} from 'react-router-dom'
 
 import ConteinerCardPet from './styles'
-import ButtonFavorite from '../../components/ButtonFavorite/index.jsx';
 import Button from '../../components/Button'
 import {
     Card,
@@ -41,6 +40,7 @@ function CardPet({ publication }) {
                                 borderRadius='lg'
                                 h='190px'
                                 w='250px'
+                                display='block'
                                 objectFit='cover'
                             />
                         </Link>
