@@ -51,7 +51,7 @@ function AdoptFriend() {
     }
 
     const getPublications = async () => {
-        const url = `/publications?_page=${page}&_limit=9`
+        const url = `/publications?_page=${page}&_limit=12`
         await publicationsApi.get(url)
             .then(response => setPublications(response.data))
             .catch(err => console.log(err))

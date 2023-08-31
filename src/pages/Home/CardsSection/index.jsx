@@ -11,7 +11,7 @@ const ConteinerCards = styled.div`
     margin-top: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 15px;
 `

@@ -22,6 +22,16 @@
       "publications": [],
       "favorites": [],
       "id": 2
+    },
+    {
+      "name": "Matheus",
+      "lastName": "Donizeti",
+      "email": "mathferreira726@gmail.com",
+      "password": "irmao259@@",
+      "password2": "irmao259@@",
+      "publications": [],
+      "favorites": [],
+      "id": 3
     }
   ],
   "ongs": []
