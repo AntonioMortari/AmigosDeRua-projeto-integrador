@@ -14,7 +14,9 @@
             "email": "kaiodolores@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "São José"
+            "city": "São José",
+            "age":"Adulto",
+            "adopted":false
         },
 
         {
@@ -30,7 +32,9 @@
             "email": "nazarevirginia@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "Sumaré"
+            "city": "Sumaré",
+            "age":"Adulto",
+            "adopted":false
         },
 
         {
@@ -46,7 +50,9 @@
             "email": "eduardomarola@gmail.com",
             "sigleUf":"GO",
             "uf": "Goiás",
-            "city": "Catalão" 
+            "city": "Catalão" ,
+            "age":"Filhote",
+            "adopted":false
         },
 
         {
@@ -62,7 +68,9 @@
             "email": "augustiho@gmail.com",
             "sigleUf":"GO",
             "uf": "Goiás",
-            "city": "Formosa" 
+            "city": "Formosa" ,
+            "age":"Adulto",
+            "adopted":false
         },
 
         {
@@ -78,7 +86,9 @@
             "email": "guimarãesfabiana@gmail.com",
             "sigleUf":"MT",
             "uf": "Mato-Grosso",
-            "city": "Cuiabá" 
+            "city": "Cuiabá",
+            "age":"Filhote" ,
+            "adopted":false
         },
 
         {
@@ -94,7 +104,9 @@
             "email": "meneses@gmail.com",
             "sigleUf":"MT",
             "uf": "Mato-Grosso",
-            "city": "Cáceres" 
+            "city": "Cáceres",
+            "age":"Adulto" ,
+            "adopted":false
         },
 
         {
@@ -110,7 +122,9 @@
             "email": "mayconSantos@gmail.com",
             "sigleUf":"MG",
             "uf": "Minas Gerais",
-            "city": "Belo-Horizonte" 
+            "city": "Belo-Horizonte",
+            "age":"Filhote" ,
+            "adopted":false
         },
 
         {
@@ -126,7 +140,9 @@
             "email": "vitoriaSilva@gmail.com",
             "sigleUf":"MG",
             "uf": "Minas Gerais",
-            "city": "Alteroza"   
+            "city": "Alteroza",
+            "age":"Filhote"   ,
+            "adopted":false
         },
 
         {
@@ -142,7 +158,9 @@
             "email": "matheusLimasat@gmail.com",
             "sigleUf":"MG",
             "uf": "Minas Gerais",
-            "city": "Montes claros"  
+            "city": "Montes claros",
+            "age":"Filhote"  ,
+            "adopted":false
         },
 
         {
@@ -158,7 +176,9 @@
             "email": "mortarirena@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "Sorocaba" 
+            "city": "Sorocaba",
+            "age":"Filhote" ,
+            "adopted":false
         },
         {  
             "id":11,
@@ -173,7 +193,9 @@
             "email": "Marquesgus@gmail.com",
             "sigleUf":"MG",
             "uf": "Minas Gerais",
-            "city": "Guaxupé"  
+            "city": "Guaxupé",
+            "age":"Adulto"  ,
+            "adopted":false
         },
         
         {
@@ -189,7 +211,9 @@
             "email": "Rebecaal@gmail.com",
             "sigleUf":"BA",
             "uf": "Bahia",
-            "city": "Salvador"
+            "city": "Salvador",
+            "age":"Adulto",
+            "adopted":false
         },
 
         {
@@ -205,7 +229,9 @@
             "email": "NicSoares@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "Ubatuba"
+            "city": "Ubatuba",
+            "age":"Filhote",
+            "adopted":false
         },
 
         {
@@ -221,7 +247,9 @@
             "email": "Rebecaal@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "Ubatuba"
+            "city": "Ubatuba",
+            "age":"Adulto",
+            "adopted":false
         },
 
         {
@@ -237,7 +265,9 @@
             "email": "Jonathanferreira@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "São José" 
+            "city": "São José",
+            "age":"Adulto" ,
+            "adopted":false
         },
 
         {
@@ -253,7 +283,9 @@
             "email": "flamedeiros@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "Campinas" 
+            "city": "Campinas" ,
+            "age":"Filhote",
+            "adopted":false
         },
 
         {
@@ -269,7 +301,9 @@
             "email": "Guiguimeda@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "Campinas" 
+            "city": "Campinas",
+            "age":"Filhote" ,
+            "adopted":false
         },
 
         {
@@ -285,7 +319,9 @@
             "email": "vierabruno@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "Sorocaba"
+            "city": "Sorocaba",
+            "age":"Filhote",
+            "adopted":false
         },
 
         {
@@ -301,7 +337,9 @@
             "email": "fernandescamile@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "Santo André"  
+            "city": "Santo André",
+            "age":"Adulto"  ,
+            "adopted":false
         },
 
         {
@@ -317,7 +355,9 @@
             "email": "ThommyHolmes@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "São Paulo"  
+            "city": "São Paulo",
+            "age":"Adulto"  ,
+            "adopted":false
         },
 
         {
@@ -327,13 +367,15 @@
             "image": "https://2.bp.blogspot.com/-kUOhE-jNras/VjD73NnTICI/AAAAAAAA66A/fpttN9e2tBQ/s1600/319dbe3d7895c2f1ff4ae36b400d1c33.jpg",
             "specie": "Cachorro",
             "size": "Médio",
-            "sex": "Masculino",
+            "sex": "Feminino",
             "description": "Brincalhona e carinhosa. Ela está sempre correndo atrás de sua bolinha, uma parceira fiel.",
             "phoneNumber": "8965-175",
             "email": "OliveiraFabiana@gmail.com",
             "sigleUf":"SP",
             "uf": "São Paulo",
-            "city": "São Paulo" 
+            "city": "São Paulo",
+            "age":"Filhote" ,
+            "adopted":false
         }
     ]
 }

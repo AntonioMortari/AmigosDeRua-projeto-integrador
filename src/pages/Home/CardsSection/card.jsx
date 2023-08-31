@@ -7,8 +7,8 @@ const Conteiner = styled.div`
     justify-content: space-between;
     gap: 15px;
 
-    width: 270px;
-    height: 360px;
+    width: 330px;
+    height:400px;
     padding: 25px;
     padding-bottom: 30px;
 
@@ -42,7 +42,7 @@ function Card({src, title, content}) {
             <img src={src} alt={`Imagem do card :${title}`} />
             <h4>{title}</h4>
 
-            <p>{content}</p>
+            <p style={{ whiteSpace: 'pre-line' }}>{content}</p>
         </Conteiner>
      );
 }

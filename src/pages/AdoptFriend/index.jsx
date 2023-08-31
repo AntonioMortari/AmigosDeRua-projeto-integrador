@@ -9,7 +9,7 @@ import MsgNoResults from '../../components/MsgNoResults/';
 import CardPet from '../../components/CardPet/';
 import Button from '../../components/Button'
 
-import {GoArrowLeft as LeftArrow, GoArrowRight as RightArrow} from 'react-icons/go'
+import { GoArrowLeft as LeftArrow, GoArrowRight as RightArrow } from 'react-icons/go'
 
 import {
     Box,
@@ -127,29 +127,33 @@ function AdoptFriend() {
                 {/* navegação das páginas */}
                 <Stack align='center' justify='center' display={Object.keys(options).length > 0 ? 'none' : 'flex'}>
                     {/* só vai aparecer se nenhuma opção de filtro estiver selecionada */}
-                    <Box 
-                    mt='30px' 
-                    display='flex' 
-                    gap='25px' 
-                    fontSize='1.2rem' 
-                    borderRadius='30px' 
-                    bg='#ff992545' 
-                    padding='10px'>
-                        <LeftArrow size='25' cursor='pointer' onClick={() =>{
-                            if(page > 1){
+                    <Box
+                        mt='30px'
+                        display='flex'
+                        gap='25px'
+                        fontSize='1.2rem'
+                        borderRadius='30px'
+                        bg='#ff992545'
+                        padding='10px'>
+                        <LeftArrow size='25' cursor='pointer' onClick={() => {
+                            if (page > 1) {
                                 let newPage = page
                                 newPage--
                                 setPage(newPage)
                                 localStorage.setItem('page', JSON.stringify(newPage))
+                                window.scrollTo(0, 0);
+
                             }
                         }} />
                         {page}
-                        <RightArrow size='25' cursor='pointer' onClick={() =>{
-                            if(page >= 1){
+                        <RightArrow size='25' cursor='pointer' onClick={() => {
+                            if (page >= 1) {
                                 let newPage = page
                                 newPage++
                                 setPage(newPage)
                                 localStorage.setItem('page', JSON.stringify(newPage))
+                                window.scrollTo(0, 0);
+
                             }
                         }} />
                     </Box>

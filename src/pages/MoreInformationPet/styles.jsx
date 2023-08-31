@@ -7,6 +7,7 @@ const ConteinerMoreInformation = styled.div`
 
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 40px;
 
     .conteiner-button-back{
         margin-bottom: 20px;
@@ -23,7 +24,6 @@ const ConteinerMoreInformation = styled.div`
 
     .conteiner-info{
         width: 50%;
-        max-height: 60%;
 
         display: flex;
         flex-direction: column;
@@ -39,16 +39,38 @@ const ConteinerMoreInformation = styled.div`
             align-items: center;
             justify-content: space-between;
 
-            >h2{
+            .name-pet{
                 color: ${({theme}) => theme.COLORS.blue};
                 font-size: 2rem;  
             }
+        }
 
+        .content{
+            p{
+                font-size: 1.3rem;
+                color: #262626ae;
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                font-weight: 500;
+            }
+
+            .description{
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                text-align: justify;
+                font-weight: normal;
+                
+                span{
+                    color: ${({theme}) => theme.COLORS.blue_light};
+                }
+            }
         }
         
 
         button{
-
+            margin-top: 25px;
             align-self: end;
             &:hover{
                 transform: translateY(-10%);

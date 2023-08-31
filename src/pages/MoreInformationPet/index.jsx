@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { publicationsApi, users } from '../../axios/config'
 import functions from '../../functions';
@@ -14,7 +14,10 @@ import Footer from '../../components/Footer'
 // icons
 import { FiPhone } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
-import { MdOutlineEmail as MdEmail, MdNestCamWiredStand } from 'react-icons/md'
+import { MdOutlineEmail as MdEmail } from 'react-icons/md'
+import { HiOutlineLocationMarker as HiLocation } from 'react-icons/hi'
+import { LuDog, LuCat } from 'react-icons/lu'
+import { BsGenderMale, BsGenderFemale } from 'react-icons/bs'
 
 // modal
 import {
@@ -39,15 +42,19 @@ function MoreInformationPet() {
 
     const [dataPet, setDataPet] = useState([])
 
+    const idUser = JSON.parse(localStorage.getItem('idUser'))
+
     const [dataUser, setDataUser] = useState({
         id: '',
         favorites: []
     })
 
     const { id } = useParams()
+    const navigate = useNavigate()
 
     // modal
     const { isOpen, onOpen, onClose } = useDisclosure()
+
 
     const getDataPetById = async () => {
         // dados do pet clicado
@@ -55,16 +62,22 @@ function MoreInformationPet() {
         await publicationsApi.get(url)
             .then(response => setDataPet(response.data))
             .catch(err => console.log(err))
+
     }
 
     const getDataUser = async () => {
         // pegar dados do usuário logado
-        const idUser = JSON.parse(localStorage.getItem('idUser'))
         const tempDataUser = await functions.getDataUserById(idUser)
         setDataUser(tempDataUser)
     }
 
     const addToFavorites = () => {
+
+        if (!dataUser.id) {
+            navigate('/login')
+            return
+        }
+
         if (!dataUser.favorites.includes(id)) {
 
             const newDataUser = { ...dataUser }
@@ -77,16 +90,15 @@ function MoreInformationPet() {
     const removeToFavorites = () => {
         const newDataUser = { ...dataUser }
         const index = newDataUser.favorites.indexOf(id)
-        newDataUser.favorites.splice(index,1)
+        newDataUser.favorites.splice(index, 1)
 
         attDataUser(newDataUser)
-        
+
     }
 
     const attDataUser = async (newDataUser) => {
         const url = `/users/${newDataUser.id}`
         users.put(url, newDataUser)
-            .then(response => console.log(response))
             .catch(err => console.log(err))
 
         setDataUser(newDataUser)
@@ -96,7 +108,9 @@ function MoreInformationPet() {
     useEffect(() => {
         if (id) {
             getDataPetById()
-            getDataUser()
+            if (idUser) {
+                getDataUser()
+            }
         }
     }, [])
 
@@ -116,35 +130,75 @@ function MoreInformationPet() {
                             w='100%'
                             h='100%'
                             objectFit='cover'
-                            borderRadius='8px' />
+                            borderRadius='8px'
+                            onClick={onOpen} />
                     </div>
 
                     <div className="conteiner-info">
                         <div className="title">
-                            <h2>{dataPet.name}</h2>
 
+                            <h2 className='name-pet'>{dataPet.name}</h2>
 
                             {dataUser.favorites.includes(id) ? (
                                 <ButtonFavorite isChecked={true} onChange={removeToFavorites} />
                             ) : (
                                 <ButtonFavorite isChecked={false} onChange={addToFavorites} />
                             )}
-                            
+
                         </div>
-                        <p>{dataPet.sigleUf} | {dataPet.uf} | {dataPet.city}</p>
+                        {/* <p>{dataPet.uf} | {dataPet.city}</p>
                         <p>Espécie: {dataPet.specie}.</p>
                         <p>Porte: {dataPet.size}.</p>
                         <p>Genêro: {dataPet.sex}.</p>
-                        <p>{dataPet.description}</p>
+                        <p>{dataPet.description}</p> */}
+
+                        {/* ... */}
+                        <div className="content">
+                            <p><HiLocation size='25' title='Localização' fill='#ffdd9d' />{dataPet.uf} | {dataPet.city}</p>
+
+                            <p>
+                                {dataPet.specie == 'Cachorro' ? (
+                                    <LuDog size='25' title='Cachorro' />
+                                ) : (
+                                    <LuCat size='25' title='Gato' />
+                                )}
+
+                                {dataPet.specie}
+                            </p>
+
+                            <p>
+                                {dataPet.sex == "Masculino" ? (
+                                    <BsGenderMale size='25' fill='blue' title='Macho' />
+                                ) : (
+                                    <BsGenderFemale size='25' fill='pink' title='Fêmea' />
+                                )}
+
+                                {dataPet.sex}
+                            </p>
+
+                            <p>
+                                Porte {dataPet.size}, {dataPet.age}
+                            </p>
+
+                            <p className='description'>
+                                <span>Descrição</span>
+
+                                {dataPet.description}
+                            </p>
+                        </div>
+
+
 
                         <Button color='orange' content='Entrar em contato' onClick={onOpen} />
                     </div>
 
-                    {/* MODAL */}
+
+
+                    {/* MODAL "Entre em contato" */}
                     <Modal isOpen={isOpen} onClose={onClose}>
                         <ModalOverlay />
                         <ModalContent margin='10% 20px'>
-                            <ModalCloseButton />
+                            <ModalCloseButton border='none' />
 
                             <ModalHeader mt='30px'>Entre em contato com {dataPet.donor}</ModalHeader>
 
@@ -171,6 +225,8 @@ function MoreInformationPet() {
                     </Modal>
 
                 </Stack>
+
+                
             </ConteinerMoreInformation>
             <Footer />
 
