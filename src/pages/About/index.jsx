@@ -13,22 +13,22 @@ import srcValues from "../../images/Values.svg";
 const ConteinerCards = styled.div`
   margin-top: 50px;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
 
-  /* >div{
+  >div{
     width: 60%;
     height: auto;
     gap:5px;
+    box-shadow: 0px 0px 10px #26262645;
 
     &:hover{
       transform: scale(1.01);
-      box-shadow: 0px 0px 10px #26262645;
     } 
-  } */
+  }
 `;
 
 function About() {
