@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import shortid from 'shortid';
 
 import axios from 'axios';
-import { publicationsApi, users } from '../../axios/config';
+import dataBase from '../../axios/config';
 import functions from '../../functions'
 
 import ConteinerPublishAnimal from './styles'
@@ -147,7 +147,7 @@ function PublishAnimal() {
         copyValues.adopted = false
 
         const url = '/publications'
-        await publicationsApi.post(url, copyValues)
+        await dataBase.post(url, copyValues)
             .catch(err => console.log(err))
 
         postAnimalInDataUser(copyValues)
@@ -159,7 +159,7 @@ function PublishAnimal() {
 
         const idUser = JSON.parse(localStorage.getItem('idUser'))
         const url = `/users/${idUser}`
-        await users.put(url,newDataUser)
+        await dataBase.put(url,newDataUser)
             .catch(err => console.log(err))
 
         setShowAlertSuccess(true)

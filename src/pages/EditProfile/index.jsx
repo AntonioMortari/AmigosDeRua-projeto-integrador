@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { users } from '../../axios/config'
+
+import dataBase from '../../axios/config'
 
 // components
 import ConteinerProfile from './styles.js'
@@ -52,7 +53,7 @@ function EditProfile() {
     // atualiza os dados do usuário na api
     const idUser = JSON.parse(localStorage.getItem('idUser'))
     const url = `/users/${idUser}`
-    await users.put(url, newDataUser)
+    await dataBase.put(url, newDataUser)
       .catch(err => console.log(err))
 
 

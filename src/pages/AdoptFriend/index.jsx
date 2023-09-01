@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { publicationsApi } from '../../axios/config.js';
+import dataBase from '../../axios/config.js';
 import axios from 'axios'
 
 import ConteinerAdoptFriend from './styles.js'
@@ -45,14 +45,14 @@ function AdoptFriend() {
 
         const url = `/publications?${params.toString()}`
 
-        await publicationsApi.get(url)
+        await dataBase.get(url)
             .then(response => setPublications(response.data))
             .catch(err => console.log(err))
     }
 
     const getPublications = async () => {
         const url = `/publications?_page=${page}&_limit=12`
-        await publicationsApi.get(url)
+        await dataBase.get(url)
             .then(response => setPublications(response.data))
             .catch(err => console.log(err))
     }

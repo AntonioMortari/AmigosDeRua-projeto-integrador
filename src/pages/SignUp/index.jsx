@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { users } from '../../axios/config'
+import dataBase from '../../axios/config'
 
 import Conteiner from '../Login/styles'
 import Input from '../../components/InputLogin';
@@ -73,7 +73,7 @@ function SignUp() {
         const url = '/users'
         values.publications = []
         values.favorites = []
-        await users.post(url, values)
+        await dataBase.post(url, values)
             .catch(err => console.log(err))
 
         // mostra a mensagem de sucesso por 8s e zera os inputs

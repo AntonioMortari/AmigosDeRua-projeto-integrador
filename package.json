@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "start":"json-server --watch src/api/db.json --port 5005",
     "startUsers": "json-server --watch src/api/users.json --port 5000",
     "startPublications": "json-server --watch src/api/publications.json --port 5001",
     "startFeedbacks": "json-server --watch src/api/feedbacks.json --port 5002"

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import { publicationsApi, users } from '../../axios/config'
+import dataBase from '../../axios/config'
 import functions from '../../functions';
 
 import ConteinerMoreInformation from './styles.jsx'
@@ -59,7 +59,7 @@ function MoreInformationPet() {
     const getDataPetById = async () => {
         // dados do pet clicado
         const url = `/publications/${id}`
-        await publicationsApi.get(url)
+        await dataBase.get(url)
             .then(response => setDataPet(response.data))
             .catch(err => console.log(err))
 
@@ -98,7 +98,7 @@ function MoreInformationPet() {
 
     const attDataUser = async (newDataUser) => {
         const url = `/users/${newDataUser.id}`
-        users.put(url, newDataUser)
+        dataBase.put(url, newDataUser)
             .catch(err => console.log(err))
 
         setDataUser(newDataUser)
