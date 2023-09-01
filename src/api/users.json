@@ -1,19 +1,6 @@
 {
   "users": [
     {
-      "name": "Antonio",
-      "lastName": "Mortari",
-      "email": "antoniomortari09@gmail.com",
-      "password": "30030522",
-      "password2": "30030522",
-      "publications": [],
-      "favorites": [
-        "12",
-        "1"
-      ],
-      "id": 1
-    },
-    {
       "name": "Lívia",
       "lastName": "Ávila",
       "email": "hail.ahlevo@gmail.com",
@@ -32,6 +19,18 @@
       "publications": [],
       "favorites": [],
       "id": 3
+    },
+    {
+      "name": "Antonio",
+      "lastName": "Mortari",
+      "email": "antoniomortari09@gmail.com",
+      "password": "30030522",
+      "password2": "30030522",
+      "publications": [
+        
+      ],
+      "favorites": [],
+      "id": 4
     }
   ],
   "ongs": []

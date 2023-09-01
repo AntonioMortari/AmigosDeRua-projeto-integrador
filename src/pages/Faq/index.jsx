@@ -70,7 +70,7 @@ function FAQ() {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white_200' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 2. Quais tipos de animais estão disponíveis para adoção?
                 </Box>
