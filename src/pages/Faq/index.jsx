@@ -1,8 +1,10 @@
 import {useState} from 'react'
+
 import Menu from "../../components/Menu";
 import styled from "styled-components";
 import srcFaq from "../../images/faq.png";
 import Footer from "../../components/Footer";
+
 import {
   Accordion,
   AccordionButton,

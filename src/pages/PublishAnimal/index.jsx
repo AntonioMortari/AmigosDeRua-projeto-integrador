@@ -12,6 +12,7 @@ import ConteinerPublishAnimal from './styles'
 import Menu from '../../components/Menu'
 import Button from '../../components/Button'
 import AlertError from '../../components/AlertError'
+import AlertSucess from '../../components/AlertSucess'
 
 import {
     Divider,
@@ -52,6 +53,9 @@ function PublishAnimal() {
     // alerta de erro
     const [showAlertError, setShowAlertError] = useState(false)
     const [alertMessage, setAlertMessage] = useState('')
+
+    // alerta de sucesso
+    const [showAlertSuccess, setShowAlertSuccess] = useState(false)
 
     const navigate = useNavigate()
 
@@ -157,6 +161,15 @@ function PublishAnimal() {
         const url = `/users/${idUser}`
         await users.put(url,newDataUser)
             .catch(err => console.log(err))
+
+        setShowAlertSuccess(true)
+
+        setTimeout(() => {
+            setShowAlertSuccess(false)
+        }, 3000)
+
+        setValues(initialValues)
+        navigate('/profile')
     }
 
     const showError = (message) =>{
@@ -316,6 +329,10 @@ function PublishAnimal() {
                     {showAlertError && (
                         <AlertError messageError={alertMessage} />
                     )}
+
+                    {showAlertSuccess && (
+                        <AlertSucess txt={`${values.name} cadastrado com sucesso!`} />
+                    )} 
 
                     <Button onClick={postAnimal} color='orange' content='Divulgar' />
                 </form>

@@ -16,7 +16,10 @@
       "email": "mathferreira726@gmail.com",
       "password": "irmao259@@",
       "password2": "irmao259@@",
-      "publications": [],
+      "publications": [
+        "8dvrjtHU2",
+        "Zmm4Qw_qB"
+      ],
       "favorites": [],
       "id": 3
     },
@@ -26,9 +29,7 @@
       "email": "antoniomortari09@gmail.com",
       "password": "30030522",
       "password2": "30030522",
-      "publications": [
-        
-      ],
+      "publications": [],
       "favorites": [],
       "id": 4
     }
