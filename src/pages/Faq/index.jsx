@@ -57,7 +57,7 @@ function FAQ() {
         <Accordion allowMultiple w={windowWidth>800?"65%":"90%"} margin="auto" mt="20px">
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left" >
                 1. Como funciona o processo de adoção pelo site?
                 </Box>
@@ -70,7 +70,7 @@ function FAQ() {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 2. Quais tipos de animais estão disponíveis para adoção?
                 </Box>
@@ -83,7 +83,7 @@ function FAQ() {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 3. Qual é o critério de adoção?
                 </Box>
@@ -96,7 +96,7 @@ function FAQ() {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 4. Quais informações são fornecidas sobre os animais?
                 </Box>
@@ -109,7 +109,7 @@ function FAQ() {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 5. Há alguma taxa de adoção?
                 </Box>
@@ -122,7 +122,7 @@ function FAQ() {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 6. Posso visitar o animal antes de adotar?
                 </Box>
@@ -135,7 +135,7 @@ function FAQ() {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 7. O que acontece se a adoção não der certo?
                 </Box>
@@ -148,7 +148,7 @@ function FAQ() {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 8. Vocês oferecem suporte pós-adoção?
                 </Box>
@@ -161,7 +161,7 @@ function FAQ() {
           </AccordionItem>
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 9. Como posso ajudar mesmo que eu não esteja pronto para adotar?
                 </Box>
@@ -175,7 +175,7 @@ function FAQ() {
 
           <AccordionItem>
             <h2>
-              <AccordionButton  _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
+              <AccordionButton padding='15px' _expanded={{ bg: 'orange', color: 'white' }} borderRadius='10px' border='1px solid #26262613'>
                 <Box as="span" flex="1" textAlign="left">
                 10. Como posso começar o processo de adoção?
                 </Box>
