@@ -5,17 +5,38 @@ const ConteinerAbout = styled.div`
         display: flex;
         align-items: center;
         /* padding: 60px; */
-        width: 90%;
-        margin: auto;
+        width: 100%;
         justify-content: center;
-        gap: 30px;
+        margin: 40px auto;
+        gap: 1px;
+        margin-left: 5%;
+
+        @media screen and (max-width:1100px) {
+           width: 100%;
+        }
+        @media screen and (max-width:1000px) {
+            width: 100%;
+            flex-direction: column;
+            align-items: start;
+            margin-left: 5px;
+        }
         
        
     }
 
     .conteiner-text-about{
-        width: 50%;
-         margin-left: 180px;
+        width: 35%;
+         margin-left: 20px;
+
+         @media screen and (max-width:1000px) {
+           margin: auto;
+           width: 60%;
+        }
+         
+         @media screen and (max-width:800px) {
+           width: 90%;
+        }
+        
 
         h4{
             font-weight: normal;
@@ -42,14 +63,19 @@ const ConteinerAbout = styled.div`
 
     .conteiner-img{
         width: 50%;
-       /* margin-right: 250px; */
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        @media screen and (max-width:1000px) {
+            width: 90%;
+        }
         
 
     img{
-        /* position: relative;
-        bottom: 50px; */
         width: 500px;
-        /* height: 500px; */
+        @media screen and (max-width:1000px) {
+            width: 350px;
+        }
     }
 
 
