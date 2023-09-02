@@ -37,8 +37,8 @@ function Menu() {
                     <NavLink to='/about'>Sobre</NavLink>
                     <NavLink to='/faq'>FAQ</NavLink>
                     <Button 
-                    content={isLogged ? 'Editar Perfil' : 'Fazer Login'} 
-                    to={isLogged ? '/edit-profile1' : '/login'} 
+                    content={isLogged ? 'Meu Perfil' : 'Fazer Login'} 
+                    to={isLogged ? '/profile' : '/login'} 
                     color='blue' />
                 </nav>
             </Header>

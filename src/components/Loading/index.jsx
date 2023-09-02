@@ -1,10 +1,10 @@
 import {Spinner} from '@chakra-ui/react'
 
-function Loader() {
-    return ( 
-        <Spinner 
-            thickness='5px'
-            speed='1s'
+function Loading() {
+    return (
+        <Spinner
+            thickness='4px'
+            speed='0.65s'
             emptyColor='gray.200'
             color='blue'
             size='xl'
@@ -13,7 +13,7 @@ function Loader() {
             left='50%'
             translate='-50% -50%'
         />
-     );
+    );
 }
 
-export default Loader;
+export default Loading;

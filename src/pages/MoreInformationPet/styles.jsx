@@ -15,7 +15,7 @@ const ConteinerMoreInformation = styled.div`
 
     .conteiner-image{
         width: 50%;
-        max-height: 60%;
+        height: 60%;
 
         @media screen and (max-width:800px){
             width: 100%;

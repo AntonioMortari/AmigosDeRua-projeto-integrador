@@ -2,73 +2,55 @@ import { useEffect, useState } from 'react';
 
 import dataBase from '../../axios/config';
 
-import styled from 'styled-components'
 import { RiUserSettingsLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import functions from '../../functions'
 import ButtonBack from '../../components/ButtonBack';
-import {  Avatar } from '@chakra-ui/react'
+import { Avatar } from '@chakra-ui/react'
+import Loading from '../../components/Loading'
 
 import ConteinerProfile from './styles.jsx'
 
 import CardPet from '../../components/CardPet'
 
-const ConteinerPublications = styled.div`
-    width: 70%;
-    margin:30px auto;
 
-    .conteiner{
-        background-color: ${({theme}) => theme.COLORS.white_100};
-        padding: 20px;
-        border-radius: 8px;
-        h3{
-            font-size: 2rem;
-            color:${({theme}) => theme.COLORS.blue};
-        }
-    }
-`
-
-
-function Profile() {
+function PageProfile() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const isLogged = useSelector(state => state.isLogged)
-    const [dataUser, setDataUser] = useState([])
 
-    const [favoritesUser, setFavroritesUser] = useState([])
+    const [dataUser, setDataUser] = useState(null)
+    const [favorites, setFavorites] = useState([])
+    const [publicationsUser, setPublicationsUser] = useState([])
 
-    const getPublicationsUser = async(id) =>{
+    const getPublicationById = async (id) => {
         const url = `/publications/${id}`
-        
-        await dataBase.get(url)
-            .then(resp =>{
-                let newFavoritesUser = [...favoritesUser]
-                newFavoritesUser.push(resp.data)
-                setFavroritesUser(newFavoritesUser)
-                console.log(newFavoritesUser)
-            })
+        const resp = await dataBase.get(url)
+        return resp.data
     }
+
+    const getPublicationsByArray = async (array) => {
+        const dataPublications = await Promise.all(array.map(id => getPublicationById(id)))
+
+        return dataPublications
+    }
+
 
     const getDataUser = async () => {
         const idUser = JSON.parse(localStorage.getItem("idUser"))
         const tempDataUser = await functions.getDataUserById(idUser)
 
+        const tempFavorites = await getPublicationsByArray(tempDataUser.favorites)
+
+        const tempPublicationsUser = await getPublicationsByArray(tempDataUser.publications)
+
+        setFavorites(tempFavorites)
+        setPublicationsUser(tempPublicationsUser)
         setDataUser(tempDataUser)
-
-        if(tempDataUser.favorites.length == 0){
-            return
-        }
-
-        tempDataUser.favorites.forEach(id =>{
-            getPublicationsUser(id)
-            
-        })
-
     }
-    
 
     useEffect(() => {
         if (!isLogged) {
@@ -81,43 +63,70 @@ function Profile() {
 
     return (
         <>
-            <ConteinerProfile>
+            {dataUser ? (
+                <ConteinerProfile>
 
-                <ButtonBack txt="Voltar" onClick={() => window.history.back()} />
 
-                <div className='nameimg'>
-                  <Avatar name={dataUser.name + dataUser.lastName} size="xl" />
-                    <div className='profile'>
-                        <h2 className='name'>{dataUser.name} {dataUser.lastName}</h2>
-                        <p className='email'>{dataUser.email}</p>
+                    <div className="profile-conteiner">
+                        <ButtonBack txt="Voltar" onClick={() => window.history.back()} />
+                        <div className='nameimg'>
+                            <Avatar name={dataUser.name + dataUser.lastName} size="xl" />
+                            <div className='profile'>
+                                <h2 className='name'>{dataUser.name} {dataUser.lastName}</h2>
+                                <p className='email'>{dataUser.email}</p>
+                            </div>
+                        </div>
+                        <div className='description'>
+                            <Link className='config' to='/edit-profile'><RiUserSettingsLine size="25" fill='#319AFB' /></Link>
+                            <button className='button' onClick={() => {
+                                dispatch({ type: 'LOGOUT' })
+                                navigate('/login')
+                            }}>Sair</button>
+                        </div>
                     </div>
-                </div>
-                <div className='description'>
-                    <Link className='config' to='/edit-profile'><RiUserSettingsLine size="25" fill='#319AFB' /></Link>
 
-                    <button className='button' onClick={() => {
-                        dispatch({ type: 'LOGOUT' })
-                        navigate('/login')
-                    }}>Sair</button>
-                </div>
+                    <div className='conteiner-publications'>
 
-            </ConteinerProfile>
+                        <h3>Marcados como "Tenho Interesse"</h3>
+                        <div>
 
-            <ConteinerPublications>
+                            {favorites.length > 0 ? (
+                                favorites.map(favorite => {
+                                    return (
+                                        <CardPet publication={favorite} />
+                                    )
+                                })
+                            ) : (
+                                <span className='message'>Você ainda não favoritou nenhum animal</span>
+                            )}
+                        </div>
 
-                <h3>Suas Publicações</h3>
+                        <h3>Publicações feitas por você</h3>
+                        <div>
 
-                <div className='conteiner'>
+                            {publicationsUser.length > 0 ? (
+                                publicationsUser.map(publication => {
+                                    return (
+                                        <CardPet publication={publication} />
 
-                    {favoritesUser.map(publication =>{
-                        <CardPet publication={publication} />
-                    })}
+                                    )
+                                })
+                            ) : (
+                                <span className='message'>Você ainda não fez nenhuma publicação, <Link to='/publish-animal'>publique já!</Link></span>
+                            )}
 
-                </div>
+                        </div>
 
-            </ConteinerPublications>
+                    </div>
+                </ConteinerProfile>
+
+            ) : (
+                <Loading />
+            )}
+
+
         </>
     );
 }
 
-export default Profile;
+export default PageProfile;

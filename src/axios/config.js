@@ -13,7 +13,7 @@ import axios from 'axios'
 // })
 
 const dataBase = axios.create({
-    baseURL:'http://localhost:5005',
+    baseURL:'https://api-fake-pi.onrender.com',
 })
 
 export default dataBase

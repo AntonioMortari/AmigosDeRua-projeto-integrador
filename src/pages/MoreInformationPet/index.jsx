@@ -8,6 +8,7 @@ import ConteinerMoreInformation from './styles.jsx'
 import ButtonBack from '../../components/ButtonBack'
 import Button from '../../components/Button';
 import ButtonFavorite from '../../components/ButtonFavorite'
+import Loading from '../../components/Loading'
 import Menu from '../../components/Menu'
 import Footer from '../../components/Footer'
 
@@ -40,7 +41,7 @@ function MoreInformationPet() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
     window.addEventListener('resize', () => setWindowWidth(window.innerWidth))
 
-    const [dataPet, setDataPet] = useState([])
+    const [dataPet, setDataPet] = useState(null)
 
     const idUser = JSON.parse(localStorage.getItem('idUser'))
 
@@ -119,114 +120,115 @@ function MoreInformationPet() {
             <Menu />
 
             <ConteinerMoreInformation>
-                <div className="conteiner-button-back">
-                    <ButtonBack onClick={() => window.history.back()} txt='Voltar' />
-                </div>
-
-                <Stack gap='20px' direction={windowWidth > 800 ? 'row' : 'column'} >
-                    <div className='conteiner-image'>
-                        <Image
-                            src={dataPet.image}
-                            w='100%'
-                            h='100%'
-                            objectFit='cover'
-                            borderRadius='8px'
-                            onClick={onOpen} />
-                    </div>
-
-                    <div className="conteiner-info">
-                        <div className="title">
-
-                            <h2 className='name-pet'>{dataPet.name}</h2>
-
-                            {dataUser.favorites.includes(id) ? (
-                                <ButtonFavorite isChecked={true} onChange={removeToFavorites} />
-                            ) : (
-                                <ButtonFavorite isChecked={false} onChange={addToFavorites} />
-                            )}
-
-                        </div>
-                        {/* <p>{dataPet.uf} | {dataPet.city}</p>
-                        <p>Espécie: {dataPet.specie}.</p>
-                        <p>Porte: {dataPet.size}.</p>
-                        <p>Genêro: {dataPet.sex}.</p>
-                        <p>{dataPet.description}</p> */}
-
-                        {/* ... */}
-                        <div className="content">
-                            <p><HiLocation size='25' title='Localização' fill='#ffdd9d' />{dataPet.uf} | {dataPet.city}</p>
-
-                            <p>
-                                {dataPet.specie == 'Cachorro' ? (
-                                    <LuDog size='25' title='Cachorro' />
-                                ) : (
-                                    <LuCat size='25' title='Gato' />
-                                )}
-
-                                {dataPet.specie}
-                            </p>
-
-                            <p>
-                                {dataPet.sex == "Masculino" ? (
-                                    <BsGenderMale size='25' fill='blue' title='Macho' />
-                                ) : (
-                                    <BsGenderFemale size='25' fill='pink' title='Fêmea' />
-                                )}
-
-                                {dataPet.sex}
-                            </p>
-
-                            <p>
-                                Porte {dataPet.size}, {dataPet.age}
-                            </p>
-
-                            <p className='description'>
-                                <span>Descrição</span>
-
-                                {dataPet.description}
-                            </p>
+                {dataPet ? (
+                    <>
+                        <div className="conteiner-button-back">
+                            <ButtonBack onClick={() => window.history.back()} txt='Voltar' />
                         </div>
 
+                        <Stack gap='20px' direction={windowWidth > 800 ? 'row' : 'column'} >
+                            <div className='conteiner-image'>
+                                <Image
+                                    src={dataPet.image}
+                                    w='100%'
+                                    h='90%'
+                                    objectFit='cover'
+                                    borderRadius='8px'
+                                    onClick={onOpen} />
+                            </div>
+
+                            <div className="conteiner-info">
+                                <div className="title">
+
+                                    <h2 className='name-pet'>{dataPet.name}</h2>
+
+                                    {dataUser.favorites.includes(id) ? (
+                                        <ButtonFavorite isChecked={true} onChange={removeToFavorites} />
+                                    ) : (
+                                        <ButtonFavorite isChecked={false} onChange={addToFavorites} />
+                                    )}
+
+                                </div>
+
+                                <div className="content">
+                                    <p><HiLocation size='25' title='Localização' fill='#ffdd9d' />{dataPet.uf} | {dataPet.city}</p>
+
+                                    <p>
+                                        {dataPet.specie == 'Cachorro' ? (
+                                            <LuDog size='25' title='Cachorro' />
+                                        ) : (
+                                            <LuCat size='25' title='Gato' />
+                                        )}
+
+                                        {dataPet.specie}
+                                    </p>
+
+                                    <p>
+                                        {dataPet.sex == "Masculino" ? (
+                                            <BsGenderMale size='25' fill='blue' title='Macho' />
+                                        ) : (
+                                            <BsGenderFemale size='25' fill='pink' title='Fêmea' />
+                                        )}
+
+                                        {dataPet.sex}
+                                    </p>
+
+                                    <p>
+                                        Porte {dataPet.size}, {dataPet.age}
+                                    </p>
+
+                                    <p className='description'>
+                                        <span>Descrição</span>
+
+                                        {dataPet.description}
+                                    </p>
+                                </div>
 
 
-                        <Button color='orange' content='Entrar em contato' onClick={onOpen} />
-                    </div>
+
+                                <Button color='orange' content='Entrar em contato' onClick={onOpen} />
+                            </div>
 
 
 
-                    {/* MODAL "Entre em contato" */}
-                    <Modal isOpen={isOpen} onClose={onClose}>
-                        <ModalOverlay />
-                        <ModalContent margin='10% 20px'>
-                            <ModalCloseButton border='none' />
+                            {/* MODAL "Entre em contato" */}
+                            <Modal isOpen={isOpen} onClose={onClose}>
+                                <ModalOverlay />
+                                <ModalContent margin='10% 20px'>
+                                    <ModalCloseButton border='none' />
 
-                            <ModalHeader mt='30px'>Entre em contato com {dataPet.donor}</ModalHeader>
+                                    <ModalHeader mt='30px'>Entre em contato com {dataPet.donor}</ModalHeader>
 
-                            <ModalBody>
+                                    <ModalBody>
 
-                                <Stack>
-                                    <Text display='flex' alignItems='center' gap='20px'> <FiPhone size='20' fill='orange' /> {dataPet.phoneNumber} </Text>
+                                        <Stack>
+                                            <Text display='flex' alignItems='center' gap='20px'> <FiPhone size='20' fill='orange' /> {dataPet.phoneNumber} </Text>
 
-                                    <Text display='flex' alignItems='center' gap='20px'><MdEmail size='20' fill='orange' /> {dataPet.email}</Text>
-                                </Stack>
+                                            <Text display='flex' alignItems='center' gap='20px'><MdEmail size='20' fill='orange' /> {dataPet.email}</Text>
+                                        </Stack>
 
-                            </ModalBody>
+                                    </ModalBody>
 
-                            <ModalFooter display='flex' justifyContent='space-around'
-                                gap='30px'>
+                                    <ModalFooter display='flex' justifyContent='space-around'
+                                        gap='30px'>
 
-                                <Button onClick={onClose} content='Fechar' color='blue' />
+                                        <Button onClick={onClose} content='Fechar' color='blue' />
 
-                                <Link href={`https://wa.me//19992276384?text=Olá! Tenho%20interesse%20em%20adotar%20o(a)%20${dataPet.name}`}>
-                                    Entre em contato via Whatsapp <FaWhatsapp />
-                                </Link>
-                            </ModalFooter>
-                        </ModalContent>
-                    </Modal>
+                                        <Link href={`https://wa.me//19992276384?text=Olá! Tenho%20interesse%20em%20adotar%20o(a)%20${dataPet.name}`}>
+                                            Entre em contato via Whatsapp <FaWhatsapp />
+                                        </Link>
+                                    </ModalFooter>
+                                </ModalContent>
+                            </Modal>
 
-                </Stack>
+                        </Stack>
+                    </>
 
-                
+                ) : (
+                    <Loading />
+                )}
+
+
             </ConteinerMoreInformation>
             <Footer />
 
