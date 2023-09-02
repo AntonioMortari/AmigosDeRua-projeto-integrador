@@ -37,6 +37,10 @@ const ConteinerProfile = styled.div`
   
   .email{
   color: rgba(38, 38, 38, 0.637);
+
+  @media screen and (max-width:700px) {
+      font-size: .7rem;
+  }
   }
   
   .config{

@@ -61,6 +61,7 @@ const ConteinerProfile = styled.div`
 
         .conteiner-action{
             display: flex;
+            gap: 10px;
             justify-content: space-around;
         }
 
