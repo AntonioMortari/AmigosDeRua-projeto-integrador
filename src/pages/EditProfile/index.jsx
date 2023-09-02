@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import dataBase from '../../axios/config'
 
@@ -25,6 +26,7 @@ function EditProfile() {
   const [showAlertSucess, setShowAlertSucess] = useState(false)
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const attDataUser = async () => {
 
@@ -180,6 +182,11 @@ function EditProfile() {
             {showAlertError && (
               <AlertError messageError={messageError} />
             )}
+
+          <Button content="Sair" color="orange" onClick={() => {
+              dispatch({type:'LOGOUT'})
+              navigate('/login')
+          } } />
 
         </div>
       </main>
