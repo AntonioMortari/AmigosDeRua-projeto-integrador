@@ -18,6 +18,10 @@ const ConteinerProfile = styled.div`
   gap: 40px;
   position: relative;
   top: 20px;
+
+  @media screen and (max-width:800px){
+    gap: 15px;
+  }
   }
   
   .name{

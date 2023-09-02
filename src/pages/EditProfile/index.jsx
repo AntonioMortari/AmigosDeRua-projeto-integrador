@@ -11,13 +11,14 @@ import Button from "../../components/Button";
 import ButtonBack from "../../components/ButtonBack";
 import AlertError from '../../components/AlertError';
 import AlertSucess from '../../components/AlertSucess';
+import Loading from '../../components/Loading'
 
 // functions
 import functions from '../../functions';
 
 
 function EditProfile() {
-  const [dataUser, setDataUser] = useState({})
+  const [dataUser, setDataUser] = useState(null)
   const [values, setValues] = useState({})
   const [isEditing, setIsEditing] = useState(false)
 
@@ -31,18 +32,18 @@ function EditProfile() {
   const attDataUser = async () => {
 
     // verificaçoes:
-    if(
+    if (
       values.name.length == 0 ||
       values.lastName.length == 0 ||
       values.email.length == 0 ||
       values.password.length == 0
-    ){
+    ) {
       showError('Preencha os campos corretamente!')
       return
     }
 
     const userExist = functions.verifyUserExist(values.email)
-    if(userExist && values.email != dataUser.email){
+    if (userExist && values.email != dataUser.email) {
       // verificando se o email alterado já esta cadastrado
       showError(`O email ${values.email} já foi cadastrado!`)
       return
@@ -63,17 +64,17 @@ function EditProfile() {
     setShowAlertSucess(true)
 
     setTimeout(() => {
-        setShowAlertSucess(false)
+      setShowAlertSucess(false)
     }, 5000);
   }
 
   const onChange = (e) => {
     setShowAlertError(false)
-    let newValues = functions.attStateValues(e,values)
+    let newValues = functions.attStateValues(e, values)
     setValues(newValues)
   }
 
-  const getDataUser = async(id) =>{
+  const getDataUser = async (id) => {
     // usamos uma função para pegar os dados com base no id e atualizamos os estados de dataUser e values(valores dos inputs)
     let newDataUser = await functions.getDataUserById(id)
     setDataUser(newDataUser)
@@ -92,104 +93,108 @@ function EditProfile() {
 
   }, [])
 
-  const showError = (message) =>{
+  const showError = (message) => {
     setShowAlertError(true)
     setMessageError(message)
   }
 
   return (
     <ConteinerProfile>
-      <div className="conteiner-button-back">
-        <ButtonBack txt="Voltar" onClick={() => window.history.back()} />
-      </div>
-
-      <main>
-
-        <div className="conteiner-avatar">
-          <Avatar size="lg" name={dataUser.name + ' ' + dataUser.lastName} />
-          <h3>{dataUser.name + ' ' + dataUser.lastName}</h3>
-        </div>
-
-        <div className="conteiner-info-user">
-          <h3>Dados do usuário:</h3>
-          <Input
-            mt='20px'
-            focusBorderColor='blue'
-            name='name'
-            mb='20px'
-            variant="filled"
-            value={values.name}
-            isDisabled={isEditing ? false : true}
-            onChange={onChange}
-          />
-
-          <Input
-          focusBorderColor='blue'
-            name='lastName'
-            mb='20px'
-            variant="filled"
-            value={values.lastName}
-            isDisabled={isEditing ? false : true}
-            onChange={onChange}
-          />
-
-          <Input
-            mb='20px'
-            focusBorderColor='blue'
-            name='email'
-            variant="filled" value={values.email}
-            isDisabled={isEditing ? false : true}
-            onChange={onChange}
-          />
-
-          <Input
-            mb='20px'
-            focusBorderColor='blue'
-            name='password'
-            type='password'
-            variant="filled"
-            placeholder="senha"
-            value={values.password}
-            isDisabled={isEditing ? false : true}
-            onChange={onChange}
-          />
-
-          <div className='conteiner-action'>
-
-            {isEditing ? (
-              // se estiver editando aparece os botões de salvar ou cancelar
-              <>
-                <Button content="Cancelar" color="blue" onClick={() => {
-                  // caso o usuário clique em cancelar, os valores dos inputs voltarão a ser iguais ao que está salvo na api
-                  setValues(dataUser)
-                  setIsEditing(false)
-                  setShowAlertError(false)
-                }} />
-
-                <Button content="Salvar alterações" color="blue" onClick={() => attDataUser()} />
-              </>
-            ) : (
-              // se não, aparece o botão de editar
-              <Button content="Editar Perfil" color="blue" onClick={() => setIsEditing(true)} />
-            )}
-
+      {dataUser ? (
+        <>
+          <div className="conteiner-button-back">
+            <ButtonBack txt="Voltar" onClick={() => window.history.back()} />
           </div>
 
-            {showAlertSucess && (
-              <AlertSucess txt='Dados Alterados com sucesso!' />
-            )}
+          <main>
 
-            {showAlertError && (
-              <AlertError messageError={messageError} />
-            )}
+            <div className="conteiner-avatar">
+              <Avatar size="lg" name={dataUser.name + ' ' + dataUser.lastName} />
+              <h3>{dataUser.name + ' ' + dataUser.lastName}</h3>
+            </div>
 
-          <Button content="Sair" color="orange" onClick={() => {
-              dispatch({type:'LOGOUT'})
-              navigate('/login')
-          } } />
+            <div className="conteiner-info-user">
+              <h3>Dados do usuário:</h3>
+              <Input
+                mt='20px'
+                focusBorderColor='blue'
+                name='name'
+                mb='20px'
+                variant="filled"
+                value={values.name}
+                isDisabled={isEditing ? false : true}
+                onChange={onChange}
+              />
 
-        </div>
-      </main>
+              <Input
+                focusBorderColor='blue'
+                name='lastName'
+                mb='20px'
+                variant="filled"
+                value={values.lastName}
+                isDisabled={isEditing ? false : true}
+                onChange={onChange}
+              />
+
+              <Input
+                mb='20px'
+                focusBorderColor='blue'
+                name='email'
+                variant="filled" value={values.email}
+                isDisabled={isEditing ? false : true}
+                onChange={onChange}
+              />
+
+              <Input
+                mb='20px'
+                focusBorderColor='blue'
+                name='password'
+                type='password'
+                variant="filled"
+                placeholder="senha"
+                value={values.password}
+                isDisabled={isEditing ? false : true}
+                onChange={onChange}
+              />
+
+              <div className='conteiner-action'>
+
+                {isEditing ? (
+                  // se estiver editando aparece os botões de salvar ou cancelar
+                  <>
+                    <Button content="Cancelar" color="blue" onClick={() => {
+                      // caso o usuário clique em cancelar, os valores dos inputs voltarão a ser iguais ao que está salvo na api
+                      setValues(dataUser)
+                      setIsEditing(false)
+                      setShowAlertError(false)
+                    }} />
+
+                    <Button content="Salvar alterações" color="blue" onClick={() => attDataUser()} />
+                  </>
+                ) : (
+                  // se não, aparece o botão de editar
+                  <Button content="Editar Perfil" color="blue" onClick={() => setIsEditing(true)} />
+                )}
+
+              </div>
+
+              {showAlertSucess && (
+                <AlertSucess txt='Dados Alterados com sucesso!' />
+              )}
+
+              {showAlertError && (
+                <AlertError messageError={messageError} />
+              )}
+
+
+
+            </div>
+          </main>
+        </>
+      ) : (
+        <Loading />
+      )}
+
     </ConteinerProfile>
   );
 }
