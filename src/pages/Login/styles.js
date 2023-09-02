@@ -10,7 +10,7 @@ const Conteiner = styled.main`
     justify-content: center;
 
     >.main{
-        margin:30px 0px;
+        margin:30px;
         background-color: ${({ theme }) => theme.COLORS.white_100};
 
         max-width: 400px;
