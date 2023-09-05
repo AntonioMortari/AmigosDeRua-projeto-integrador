@@ -77,22 +77,28 @@ function AdoptFriend() {
                 <main>
 
                     <h2>Adote um amigo!</h2>
-                    <div className='conteiner-filters' value={options.uf} onChange={handleOptions}>
+                    <div className='conteiner-filters'>
 
 
-                        <select name="specie" id="specie">
+                        <select
+                        onChange={handleOptions}
+                        name="specie" id="specie">
                             <option value="">Todas as espécies</option>
                             <option value="Cachorro">Cachorro</option>
                             <option value="Gato">Gato</option>
                         </select>
 
-                        <select name="sex" id="sex">
+                        <select
+                        onChange={handleOptions}
+                        name="sex" id="sex">
                             <option value="">Todos os Gêneros</option>
                             <option value="Masculino">Macho</option>
                             <option value="Feminino">Fêmea</option>
                         </select>
 
-                        <select name="sigleUf" id="sigleUf">
+                        <select
+                        onChange={handleOptions}
+                        name="sigleUf" id="sigleUf">
                             <option value="">Todos os Estados</option>
                             {ufs.map(uf => {
                                 return (
@@ -101,7 +107,9 @@ function AdoptFriend() {
                             })}
                         </select>
 
-                        <select name="size" id="size">
+                        <select
+                        onChange={handleOptions}
+                        name="size" id="size">
                             <option value="">Todos os Portes</option>
                             <option value="Pequeno">Pequeno</option>
                             <option value="Médio">Médio</option>

@@ -47,7 +47,8 @@ function MoreInformationPet() {
 
     const [dataUser, setDataUser] = useState({
         id: '',
-        favorites: []
+        favorites: [],
+        publications: []
     })
 
     const { id } = useParams()
@@ -74,11 +75,17 @@ function MoreInformationPet() {
 
     const remoteToPublications = async () => {
         let url = `/publications/${id}`
+
         await dataBase.delete(url)
             .catch(err => console.log(err))
+
         const newDataUser = { ...dataUser }
+
+        // excluindo publicação pelo id
         const index = newDataUser.publications.indexOf(id)
         newDataUser.publications.splice(index, 1)
+
+        // atualizando dados do usuário
         url = `/users/${newDataUser.id}`
         await dataBase.put(url, newDataUser)
         navigate("/profile")
@@ -86,7 +93,6 @@ function MoreInformationPet() {
 
     const EditPublications = () => {
         navigate(`/edit-animal/${id}`)
-        
     }
 
     const addToFavorites = () => {
@@ -125,10 +131,10 @@ function MoreInformationPet() {
 
     useEffect(() => {
         if (id) {
-            getDataPetById()
             if (idUser) {
                 getDataUser()
             }
+            getDataPetById()
         }
     }, [])
 
@@ -159,10 +165,14 @@ function MoreInformationPet() {
 
                                     <h2 className='name-pet'>{dataPet.name}</h2>
 
-                                    {dataUser.favorites.includes(id) ? (
-                                        <ButtonFavorite isChecked={true} onChange={removeToFavorites} />
-                                    ) : (
-                                        <ButtonFavorite isChecked={false} onChange={addToFavorites} />
+                                    {dataUser.publications.includes(id) || (
+
+
+                                        dataUser.favorites.includes(id) ? (
+                                            <ButtonFavorite isChecked={true} onChange={removeToFavorites} />
+                                        ) : (
+                                            <ButtonFavorite isChecked={false} onChange={addToFavorites} />
+                                        )
                                     )}
 
                                 </div>

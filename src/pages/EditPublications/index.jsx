@@ -139,10 +139,8 @@ function PublishAnimal() {
         //     return
         // }
 
-        // completamos as informações da publicação
         const copyValues = { ...values }
         
-
         const url = `/publications/${id}`
         await dataBase.put(url, copyValues)
             .catch(err => console.log(err))
@@ -150,24 +148,6 @@ function PublishAnimal() {
 
     }
 
-    const postAnimalInDataUser = async (copyValues) => {
-        const newDataUser = { ...dataUser }
-        newDataUser.publications.push(copyValues.id)
-
-        const idUser = JSON.parse(localStorage.getItem('idUser'))
-        const url = `/users/${idUser}`
-        await dataBase.put(url, newDataUser)
-            .catch(err => console.log(err))
-
-        setShowAlertSuccess(true)
-
-        setTimeout(() => {
-            setShowAlertSuccess(false)
-        }, 3000)
-
-        setValues(initialValues)
-        navigate('/profile')
-    }
 
     const showError = (message) => {
         // recebe uma mensagem e mostra o erro com essa mensagem
@@ -180,7 +160,6 @@ function PublishAnimal() {
         await dataBase.get(url)
             .then(resp => setValues(resp.data))
             .catch(err => console.log(err))
-
     }
 
     useEffect(() => {
