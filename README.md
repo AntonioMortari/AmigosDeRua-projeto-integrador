@@ -40,6 +40,11 @@
 - Depois de clicar no link acima, você pode acessar o projeto clicando [aqui](https://amigos-de-rua.vercel.app/)
 
 
+
+**Aviso:**
+
+- Ao usar a demonstração, evite inserir informações pessoais sensíveis ou confidenciais.
+- Antes de sair do site, encerre sua sessão clicando em Meu Perfil > Sair para evitar problemas no futuro.
 ## Rodando localmente
 
 Clone o projeto
