@@ -43,7 +43,7 @@ function MoreInformationPet() {
 
     const [dataPet, setDataPet] = useState(null)
 
-    const idUser = JSON.parse(localStorage.getItem('idUser'))
+    const idUser = JSON.parse(sessionStorage.getItem('idUser'))
 
     const [dataUser, setDataUser] = useState({
         id: '',

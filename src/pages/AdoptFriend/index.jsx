@@ -24,7 +24,7 @@ function AdoptFriend() {
     const [publications, setPublications] = useState([])
     const [options, setOptions] = useState(initialOptions)
     const [ufs, setUfs] = useState([])
-    const [page, setPage] = useState(JSON.parse(localStorage.getItem('page')) || 1)
+    const [page, setPage] = useState(JSON.parse(sessionStorage.getItem('page')) || 1)
 
     const handleOptions = (e) => {
         const { name, value } = e.target
@@ -148,7 +148,7 @@ function AdoptFriend() {
                                 let newPage = page
                                 newPage--
                                 setPage(newPage)
-                                localStorage.setItem('page', JSON.stringify(newPage))
+                                sessionStorage.setItem('page', JSON.stringify(newPage))
                                 window.scrollTo(0, 0);
 
                             }
@@ -159,7 +159,7 @@ function AdoptFriend() {
                                 let newPage = page
                                 newPage++
                                 setPage(newPage)
-                                localStorage.setItem('page', JSON.stringify(newPage))
+                                sessionStorage.setItem('page', JSON.stringify(newPage))
                                 window.scrollTo(0, 0);
 
                             }

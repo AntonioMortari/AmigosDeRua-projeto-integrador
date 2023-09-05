@@ -54,7 +54,7 @@ function EditProfile() {
     setDataUser(newDataUser)
 
     // atualiza os dados do usuário na api
-    const idUser = JSON.parse(localStorage.getItem('idUser'))
+    const idUser = JSON.parse(sessionStorage.getItem('idUser'))
     const url = `/users/${idUser}`
     await dataBase.put(url, newDataUser)
       .catch(err => console.log(err))
@@ -82,12 +82,12 @@ function EditProfile() {
   }
 
   useEffect(() => {
-    const idUser = JSON.parse(localStorage.getItem('idUser'))
+    const idUser = JSON.parse(sessionStorage.getItem('idUser'))
     if (idUser) {
       getDataUser(idUser)
 
     } else {
-      // caso não haja id no localStorage, ou seja, o usuário não fez login, volta pra página de login
+      // caso não haja id no sessionStorage, ou seja, o usuário não fez login, volta pra página de login
       navigate('/login')
     }
 

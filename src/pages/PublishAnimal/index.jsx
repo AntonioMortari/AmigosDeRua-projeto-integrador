@@ -106,8 +106,8 @@ function PublishAnimal() {
 
 
     const getDataUser = async () => {
-        // pegar dados do usuário logado pelo id armazenado no localStorage
-        const idUser = JSON.parse(localStorage.getItem('idUser'))
+        // pegar dados do usuário logado pelo id armazenado no sessionStorage
+        const idUser = JSON.parse(sessionStorage.getItem('idUser'))
         if (idUser) {
             const tempDataUser = await functions.getDataUserById(idUser)
             setDataUser(tempDataUser)
@@ -157,7 +157,7 @@ function PublishAnimal() {
         const newDataUser = { ...dataUser }
         newDataUser.publications.push(copyValues.id)
 
-        const idUser = JSON.parse(localStorage.getItem('idUser'))
+        const idUser = JSON.parse(sessionStorage.getItem('idUser'))
         const url = `/users/${idUser}`
         await dataBase.put(url, newDataUser)
             .catch(err => console.log(err))

@@ -30,7 +30,7 @@ function ComponentFooter() {
         let dataFeedback = {}
 
         if(isLogged){
-            const idUser = JSON.parse(localStorage.getItem('idUser'))
+            const idUser = JSON.parse(sessionStorage.getItem('idUser'))
             let dataUser = await functions.getDataUserById(idUser)
             dataFeedback.name = dataUser.name 
             dataFeedback.email = dataUser.email

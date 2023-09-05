@@ -1,8 +1,8 @@
 import { legacy_createStore as createStore } from "redux";
 
 const initialState = {
-    isLogged:JSON.parse(localStorage.getItem('isLogged')) || false,
-    idUser:JSON.parse(localStorage.getItem('idUser')) || null
+    isLogged:JSON.parse(sessionStorage.getItem('isLogged')) || false,
+    idUser:JSON.parse(sessionStorage.getItem('idUser')) || null
 }
 
 const reducer = (state = initialState, action) =>{
@@ -11,15 +11,15 @@ const reducer = (state = initialState, action) =>{
         case 'LOGIN':
             newState = {...state}
             newState.isLogged = true
-            localStorage.setItem('isLogged', JSON.stringify(newState.isLogged))
-            localStorage.setItem('idUser', action.idUser)
+            sessionStorage.setItem('isLogged', JSON.stringify(newState.isLogged))
+            sessionStorage.setItem('idUser', action.idUser)
             return newState
         case 'LOGOUT':
             newState = {...state}
             newState.isLogged = false
-            localStorage.setItem('isLogged', JSON.stringify(newState.isLogged))
-            localStorage.removeItem('idUser')
-            localStorage.removeItem('page')
+            sessionStorage.setItem('isLogged', JSON.stringify(newState.isLogged))
+            sessionStorage.removeItem('idUser')
+            sessionStorage.removeItem('page')
             return newState
         default:
             return state

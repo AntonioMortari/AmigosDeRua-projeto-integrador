@@ -40,7 +40,7 @@ function PageProfile() {
 
 
     const getDataUser = async () => {
-        const idUser = JSON.parse(localStorage.getItem("idUser"))
+        const idUser = JSON.parse(sessionStorage.getItem("idUser"))
         const tempDataUser = await functions.getDataUserById(idUser)
 
         const tempFavorites = await getPublicationsByArray(tempDataUser.favorites)
