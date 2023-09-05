@@ -92,8 +92,8 @@ function AdoptFriend() {
                         onChange={handleOptions}
                         name="sex" id="sex">
                             <option value="">Todos os Gêneros</option>
-                            <option value="Masculino">Macho</option>
-                            <option value="Feminino">Fêmea</option>
+                            <option value="Macho">Macho</option>
+                            <option value="Fêmea">Fêmea</option>
                         </select>
 
                         <select

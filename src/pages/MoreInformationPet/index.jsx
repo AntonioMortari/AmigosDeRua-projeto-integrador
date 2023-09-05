@@ -191,7 +191,7 @@ function MoreInformationPet() {
                                     </p>
 
                                     <p>
-                                        {dataPet.sex == "Masculino" ? (
+                                        {dataPet.sex == "Macho" ? (
                                             <BsGenderMale size='25' fill='blue' title='Macho' />
                                         ) : (
                                             <BsGenderFemale size='25' fill='pink' title='Fêmea' />

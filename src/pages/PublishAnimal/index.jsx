@@ -242,8 +242,8 @@ function PublishAnimal() {
                             onChange={handleValues}
                         >
                             <option value="">Selecione o Gênero</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Feminino">Feminino</option>
+                            <option value="Macho">Macho</option>
+                            <option value="Fêmea">Fêmea</option>
                         </select>
                         <select
                             name='age'
