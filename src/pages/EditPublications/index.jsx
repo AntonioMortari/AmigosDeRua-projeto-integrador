@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
 
 import shortid from 'shortid';
 
@@ -8,7 +9,7 @@ import axios from 'axios';
 import dataBase from '../../axios/config';
 import functions from '../../functions'
 
-import ConteinerPublishAnimal from './styles'
+import ConteinerPublishAnimal from '../PublishAnimal/styles'
 import Menu from '../../components/Menu'
 import Button from '../../components/Button'
 import AlertError from '../../components/AlertError'
@@ -58,6 +59,8 @@ function PublishAnimal() {
     const [showAlertSuccess, setShowAlertSuccess] = useState(false)
 
     const navigate = useNavigate()
+
+    const { id } = useParams()
 
     const getUfs = async () => {
         // cria as options com todos os estados
@@ -129,28 +132,22 @@ function PublishAnimal() {
 
         e.preventDefault()
 
-        const isIncorrect = verifyDataPet()
-        if (isIncorrect) {
-            // verificamos se todos os dados foram preenchidos
-            showError('Preencha todos os dados corretamente!')
-            return
-        }
+        // const isIncorrect = verifyDataPet()
+        // if (isIncorrect) {
+        //     // verificamos se todos os dados foram preenchidos
+        //     showError('Preencha todos os dados corretamente!')
+        //     return
+        // }
 
         // completamos as informações da publicação
         const copyValues = { ...values }
+        
 
-        copyValues.donor = dataUser.name + " " + dataUser.lastName
-        copyValues.email = dataUser.email
-
-        // gerando um id único com a biblioteca shortid
-        copyValues.id = shortid.generate()
-        copyValues.adopted = false
-
-        const url = '/publications'
-        await dataBase.post(url, copyValues)
+        const url = `/publications/${id}`
+        await dataBase.put(url, copyValues)
             .catch(err => console.log(err))
+        navigate(`/more-information-pet/${id}`)
 
-        postAnimalInDataUser(copyValues)
     }
 
     const postAnimalInDataUser = async (copyValues) => {
@@ -178,6 +175,13 @@ function PublishAnimal() {
         setAlertMessage(message)
     }
 
+    const getDataPet = async () => {
+        const url = `/publications/${id}`
+        await dataBase.get(url)
+            .then(resp => setValues(resp.data))
+            .catch(err => console.log(err))
+
+    }
 
     useEffect(() => {
         if (!isLogged) {
@@ -187,6 +191,7 @@ function PublishAnimal() {
         // se estiver logado, pegue os dados das ufs e os dados do usuário
         getUfs()
         getDataUser()
+        getDataPet()
     }, [])
 
 
@@ -195,7 +200,7 @@ function PublishAnimal() {
             <Menu />
 
             <ConteinerPublishAnimal>
-                <h1>Divulgar Animal para Adoção</h1>
+                <h1>Editar Animal para Adoção</h1>
                 <Divider />
 
                 <form>
@@ -330,10 +335,10 @@ function PublishAnimal() {
                     )}
 
                     {showAlertSuccess && (
-                        <AlertSucess txt={`${values.name} cadastrado com sucesso!`} />
+                        <AlertSucess txt={`${values.name} Editado com sucesso!`} />
                     )}
 
-                    <Button onClick={postAnimal} color='orange' content='Divulgar' />
+                    <Button onClick={postAnimal} color='orange' content='Salvar alterações' />
                 </form>
             </ConteinerPublishAnimal>
         </>

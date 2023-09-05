@@ -11,6 +11,7 @@ import AdoptFriend from '../pages/AdoptFriend'
 import PublishAnimal from '../pages/PublishAnimal'
 import MoreInformationPet from '../pages/MoreInformationPet'
 import NgoCampaigns from '../pages/NgoCampaigns'
+import EditPublications from '../pages/EditPublications'
 
 import SignUp from '../pages/SignUp'
 import Login from '../pages/Login'
@@ -35,6 +36,7 @@ export default function Rotas(){
 
                 <Route path='/adoptfriend' element={<AdoptFriend />} />
                 <Route path='/publish-animal' element={<PublishAnimal />} />
+                <Route path='/edit-animal/:id' element={<EditPublications />} />
                 <Route path='/more-information-pet/:id' element={<MoreInformationPet />} />
                 <Route path='/ngo-campaigns' element={<NgoCampaigns />} />
 

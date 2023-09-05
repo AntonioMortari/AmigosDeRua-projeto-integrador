@@ -72,6 +72,23 @@ function MoreInformationPet() {
         setDataUser(tempDataUser)
     }
 
+    const remoteToPublications = async () => {
+        let url = `/publications/${id}`
+        await dataBase.delete(url)
+            .catch(err => console.log(err))
+        const newDataUser = { ...dataUser }
+        const index = newDataUser.publications.indexOf(id)
+        newDataUser.publications.splice(index, 1)
+        url = `/users/${newDataUser.id}`
+        await dataBase.put(url, newDataUser)
+        navigate("/profile")
+    }
+
+    const EditPublications = () => {
+        navigate(`/edit-animal/${id}`)
+        
+    }
+
     const addToFavorites = () => {
 
         if (!dataUser.id) {
@@ -186,7 +203,15 @@ function MoreInformationPet() {
 
 
 
-                                <Button color='orange' content='Entrar em contato' onClick={onOpen} />
+                                {dataUser.publications.includes(id) ? (
+                                    <Stack direction="row" alignSelf="end">
+                                        <Button content="Excluir" color="orange" onClick={remoteToPublications} />
+                                        <Button content="Editar" color="blue" onClick={EditPublications} />
+
+                                    </Stack>
+                                ) : (
+                                    <Button content="Entrar em contato" color="orange" onClick={onOpen} />
+                                )}
                             </div>
 
 

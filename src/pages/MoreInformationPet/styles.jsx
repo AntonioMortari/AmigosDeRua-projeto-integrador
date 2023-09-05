@@ -77,6 +77,7 @@ const ConteinerMoreInformation = styled.div`
             }
         }
     }
+
 `
 
 export default ConteinerMoreInformation
