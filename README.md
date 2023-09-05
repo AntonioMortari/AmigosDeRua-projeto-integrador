@@ -49,7 +49,7 @@
 
 Clone o projeto
 ```bash
-  git clone https://github.com/AntonioMortari/projeto_integrador_LMA.git
+  git clone https://github.com/AntonioMortari/AmigosDeRua-projeto-integrador.git
 ```
 
 Entre no diretório do projeto
