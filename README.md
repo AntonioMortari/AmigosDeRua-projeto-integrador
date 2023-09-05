@@ -3,7 +3,7 @@
 
 (Projeto acadêmico) O site Amigos de Rua tem como objetivo conectar pessoas que desejam adotar com animais de rua que buscam um lar. Com uma interface amigável, a plataforma permite que os usuários cadastrem-se, publiquem informações sobre animais disponíveis para adoção, entrem em contato via WhatsApp com os anunciantes e favoritem animais para revisitar posteriormente.
 
-## Tecnologias Utilizadas
+## 👩‍💻 Tecnologias Utilizadas
 
 - [**ReactJS**](https://pt-br.legacy.reactjs.org/): Desenvolvimento das interfaces de usuário.
  - [**Styled-components**](https://styled-components.com/): Estilização moderna e dinâmica.
@@ -45,7 +45,7 @@
 
 - Ao usar a demonstração, evite inserir informações pessoais sensíveis ou confidenciais.
 - Antes de sair do site, encerre sua sessão clicando em Meu Perfil > Sair para evitar problemas no futuro.
-## Rodando localmente
+## 💻 Rodando localmente
 
 Clone o projeto
 ```bash
@@ -73,7 +73,7 @@ Inicialize a Api fake
 ```
 
 
-## Melhorias Planejadas
+## 🚀 Melhorias Planejadas
 
 - **Cadastro de ONGs**: Vamos permitir que organizações não governamentais (ONGs) que atuam na proteção de animais se cadastrem e criem perfis dedicados no site. As ONGs cadastradas poderão criar e compartilhar informações sobre suas ações, campanhas e necessidades específicas e os usuários poderão contribuir com essas ações.
 ## Equipe do projeto
@@ -81,4 +81,9 @@ Inicialize a Api fake
 - [@AntonioMortari](https://github.com/AntonioMortari)
 - [@Liahiro](https://github.com/Liahiro)
 - [@Matheusdonizeti](https://github.com/matheusdonizetiferreira)
+
+## Docentes Envolvidos
+- [@Fernando Jacinto](https://github.com/fernandojsilvasenac)
+- [@Elisangela Corrêa](https://www.linkedin.com/in/liscorrea/)
+- [@Fábio Lima](#)
 
