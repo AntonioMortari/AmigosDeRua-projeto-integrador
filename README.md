@@ -43,8 +43,8 @@
 
 **Aviso:**
 
-- Ao usar a demonstração, evite inserir informações pessoais sensíveis ou confidenciais.
-- Antes de sair do site, encerre sua sessão clicando em Meu Perfil > Sair para evitar problemas no futuro.
+- Ao usar a demonstração, evite inserir informações pessoais sensíveis.
+- Antes de sair do site, encerre sua sessão clicando em Meu Perfil > Sair para evitar problemas.
 ## 💻 Rodando localmente
 
 Clone o projeto
@@ -72,10 +72,6 @@ Inicialize a Api fake
   npm start
 ```
 
-
-## 🚀 Melhorias Planejadas
-
-- **Cadastro de ONGs**: Vamos permitir que organizações não governamentais (ONGs) que atuam na proteção de animais se cadastrem e criem perfis dedicados no site. As ONGs cadastradas poderão criar e compartilhar informações sobre suas ações, campanhas e necessidades específicas e os usuários poderão contribuir com essas ações.
 ## Equipe do projeto
 
 - [@AntonioMortari](https://github.com/AntonioMortari)
